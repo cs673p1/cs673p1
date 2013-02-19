@@ -27,19 +27,19 @@ class UserController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('@'),
+			array('allow', // allow anyone to register
+				'actions'=>array('create'), 
+				'users'=>array('*'), // all users
 			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('*'),
+			array('allow', // allow authenticated users to update/view
+				'actions'=>array('update','view'), 
+				'roles'=>array('authenticated')
 			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('update','delete'),
-				'users'=>array('@'),
+			array('allow', // allow admins only to delete
+				'actions'=>array('delete'), 
+				'roles'=>array('admin'),
 			),
-			array('deny',  // deny all users
+			array('deny', // deny anything else
 				'users'=>array('*'),
 			),
 		);
@@ -90,6 +90,12 @@ class UserController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+		
+		    // set the parameters for the bizRule
+    		$params = array('User'=>$model);
+		if (!Yii::app()->user->checkAccess('updateSelf', $params) && !Yii::app()->user->checkAccess('admin')){
+        		throw new CHttpException(403, 'You are not authorized to perform this action');
+    		}
 
 		if(isset($_POST['User']))
 		{
