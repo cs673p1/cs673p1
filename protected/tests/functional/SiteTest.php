@@ -1,7 +1,18 @@
 <?php
-
-class SiteTest extends WebTestCase
+define('TEST_BASE_URL','http://localhost/~wangalrebt/testdrive/index-test.php/');
+class SiteTest extends CWebTestCase
 {
+
+  /**
+     * Sets up before each test method runs.
+     * This mainly sets the base URL for the test application.
+     */
+  protected function setUp()
+  {
+    parent::setUp();
+    $this->setBrowserUrl(TEST_BASE_URL);
+  }
+
 	public function testIndex()
 	{
 		$this->open('');

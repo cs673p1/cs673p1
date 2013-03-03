@@ -1,12 +1,12 @@
 <?php
 
 // uncomment the following to define a path alias
-Yii::setPathOfAlias('bootstrap',dirname(_FILE_).'/Users/wangalrebt/Sites/testdrive/extensions/bootstrap');
+Yii::setPathOfAlias('bootstrap',dirname(__FILE__).'/Users/wangalrebt/Sites/testdrive/extensions/bootstrap');
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 return array(
-	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
+  'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'My Web Application',
 
 	// preloading 'log' component

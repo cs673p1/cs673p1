@@ -367,3 +367,21 @@ Stack trace:
 #15 {main}
 REQUEST_URI=/~wangalrebt/testdrive/index.php?r=user/update&id=2
 ---
+2013/02/27 01:20:20 [error] [php] strtotime(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone. (/Users/wangalrebt/Sites/testdrive/protected/components/UserIdentity.php:35)
+Stack trace:
+#0 /Users/wangalrebt/Sites/yii-1.1.13.e9e4a0/framework/validators/CInlineValidator.php(42): LoginForm->authenticate()
+#1 /Users/wangalrebt/Sites/yii-1.1.13.e9e4a0/framework/validators/CValidator.php(213): CInlineValidator->validateAttribute()
+#2 /Users/wangalrebt/Sites/yii-1.1.13.e9e4a0/framework/base/CModel.php(159): CInlineValidator->validate()
+#3 /Users/wangalrebt/Sites/testdrive/protected/controllers/SiteController.php(94): LoginForm->validate()
+#4 /Users/wangalrebt/Sites/yii-1.1.13.e9e4a0/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#5 /Users/wangalrebt/Sites/yii-1.1.13.e9e4a0/framework/web/CController.php(308): CInlineAction->runWithParams()
+#6 /Users/wangalrebt/Sites/yii-1.1.13.e9e4a0/framework/web/CController.php(286): SiteController->runAction()
+#7 /Users/wangalrebt/Sites/yii-1.1.13.e9e4a0/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#8 /Users/wangalrebt/Sites/yii-1.1.13.e9e4a0/framework/web/CWebApplication.php(282): SiteController->run()
+#9 /Users/wangalrebt/Sites/yii-1.1.13.e9e4a0/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#10 /Users/wangalrebt/Sites/yii-1.1.13.e9e4a0/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /Users/wangalrebt/Sites/testdrive/index.php(13): CWebApplication->run()
+REQUEST_URI=/~wangalrebt/testdrive/index.php?r=site/login
+in /Users/wangalrebt/Sites/testdrive/protected/components/UserIdentity.php (35)
+in /Users/wangalrebt/Sites/testdrive/protected/models/LoginForm.php (52)
+in /Users/wangalrebt/Sites/testdrive/protected/controllers/SiteController.php (94)
