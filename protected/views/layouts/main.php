@@ -21,7 +21,10 @@
 <body>
 <header class="navbar navbar-inverse navbar-fixed-top">
     <nav class="navbar-inner">
-
+        <ul class="nav">
+            <li><?php echo CHtml::link('HOME', array('site/index')); ?></li>
+            <li><?php echo CHtml::link('Contact me', array('site/contact')); ?></li>
+        </ul>
     </nav>
 </header>
 
