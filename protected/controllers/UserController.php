@@ -33,11 +33,11 @@ class UserController extends Controller
 			),
 			array('allow', // allow authenticated users to update/view
 				'actions'=>array('update','view'), 
-				'roles'=>array('authenticated')
+				'roles'=>array('authenticated, admin')
 			),
 			array('allow', // allow admins only to delete
-				'actions'=>array('delete'), 
-				'roles'=>array('admin'),
+				'actions'=>array('delete'),
+        'roles'=>array('admin, authenticated')
 			),
 			array('deny', // deny anything else
 				'users'=>array('*'),
@@ -65,7 +65,7 @@ class UserController extends Controller
 		$model=new User;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['User']))
 		{
@@ -92,10 +92,10 @@ class UserController extends Controller
 		// $this->performAjaxValidation($model);
 		
 		    // set the parameters for the bizRule
-    		$params = array('User'=>$model);
+    $params = array('User'=>$model);
 		if (!Yii::app()->user->checkAccess('updateSelf', $params) && !Yii::app()->user->checkAccess('admin')){
-        		throw new CHttpException(403, 'You are not authorized to perform this action');
-    		}
+      throw new CHttpException(403, 'You are not authorized to perform this action');
+    }
 
 		if(isset($_POST['User']))
 		{

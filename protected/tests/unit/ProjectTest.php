@@ -27,6 +27,7 @@ class ProjectTest extends CDbTestCase{
     }
 
     public function testRead(){
+        //read an user
         $retrievedUser = $this->users('user1');
         $this->assertTrue($retrievedUser instanceof User);
         $this->assertEquals('Test User 1', $retrievedUser->name);
