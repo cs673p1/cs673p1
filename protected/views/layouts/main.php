@@ -24,6 +24,7 @@
         <ul class="nav">
             <li><?php echo CHtml::link('HOME', array('site/index')); ?></li>
             <li><?php echo CHtml::link('Contact me', array('site/contact')); ?></li>
+            <li><?php echo CHtml::link('Sign in', array('user/create')); ?></li>
         </ul>
     </nav>
 </header>

@@ -5,7 +5,7 @@
     <ignored path="testdrive.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="4bcab80b-603a-4847-ab03-7a2945140d29" time="1363550057282" ignored="false" />
-    <file path="/main.php" changelist="4bcab80b-603a-4847-ab03-7a2945140d29" time="1363560774056" ignored="false" />
+    <file path="/main.php" changelist="4bcab80b-603a-4847-ab03-7a2945140d29" time="1363561248614" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +28,7 @@
       <file leaf-file-name="main.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="79" selection-start="1278" selection-end="1278" vertical-scroll-proportion="0.6107492">
+            <state line="26" column="75" selection-start="1359" selection-end="1359" vertical-scroll-proportion="0.63517916">
               <folding />
             </state>
           </provider>
@@ -467,7 +467,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="79" selection-start="1278" selection-end="1278" vertical-scroll-proportion="0.6107492">
+        <state line="26" column="75" selection-start="1359" selection-end="1359" vertical-scroll-proportion="0.63517916">
           <folding />
         </state>
       </provider>
