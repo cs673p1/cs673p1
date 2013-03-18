@@ -42,6 +42,7 @@ return array(
             // enable cookie-based authentication
             'allowAutoLogin'=>true,
         ),
+
         'bootstrap'=>array(
             'class'=>'bootstrap.components.Bootstrap',
         ),
@@ -72,6 +73,9 @@ return array(
             'password' => '8809959f',
             'charset' => 'utf8',
         ),
+
+        //uncomment the following to use authmananger
+        /*
         'authManager'=>array(
             'class'=>'CDbAuthManager',
             'connectionID'=>'db',
@@ -80,7 +84,7 @@ return array(
             'itemChildTable' => 'AuthItemChild',
             'defaultRoles'=>array('authenticated', 'guest'),
         ),
-
+        */
 
         'errorHandler'=>array(
             // use 'site/error' action to display errors
