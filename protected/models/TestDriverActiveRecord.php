@@ -1,4 +1,10 @@
 <?php
+/**
+ * This is the model class to update user sign in time
+ * @package application.model
+ *
+ *
+ */
 
 abstract class TestDriverActiveRecord extends CActiveRecord{
     protected function beforeValidate(){

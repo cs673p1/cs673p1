@@ -1,4 +1,8 @@
 <?php
+/**
+ * Message controller
+ * @package application.controllers
+ */
 
 class MessageController extends Controller
 {

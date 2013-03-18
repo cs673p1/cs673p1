@@ -1,4 +1,8 @@
 <?php
+/**
+ * Class SiteController
+ * @package application.controllers
+ */
 
 class SiteController extends Controller
 {

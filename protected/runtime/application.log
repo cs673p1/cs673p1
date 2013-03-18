@@ -627,3 +627,45 @@ Stack trace:
 #11 {main}
 REQUEST_URI=/~wangalrebt/testdrive/index.php?r=user/view&id=21
 ---
+2013/03/17 19:12:58 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /Users/wangalrebt/Sites/testdrive/yii/framework/web/auth/CAccessControlFilter.php:179
+Stack trace:
+#0 /Users/wangalrebt/Sites/testdrive/yii/framework/web/auth/CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /Users/wangalrebt/Sites/testdrive/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Users/wangalrebt/Sites/testdrive/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /Users/wangalrebt/Sites/testdrive/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /Users/wangalrebt/Sites/testdrive/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/wangalrebt/Sites/testdrive/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/wangalrebt/Sites/testdrive/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/wangalrebt/Sites/testdrive/yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /Users/wangalrebt/Sites/testdrive/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('user/index')
+#9 /Users/wangalrebt/Sites/testdrive/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /Users/wangalrebt/Sites/testdrive/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~wangalrebt/testdrive/index.php?r=user/index
+HTTP_REFERER=http://localhost/~wangalrebt/testdrive/index.php?r=user/create
+---
+2013/03/17 22:29:56 [error] [php] include(/Users/wangalrebt/Sites/testdrive/protected/extensions/PHPDocCrontab/PHPDocCrontab.php): failed to open stream: No such file or directory (/Users/wangalrebt/Sites/testdrive/yii/framework/YiiBase.php:395)
+Stack trace:
+#0 /Users/wangalrebt/Sites/testdrive/yii/framework/console/CConsoleCommandRunner.php(145): spl_autoload_call()
+#1 /Users/wangalrebt/Sites/testdrive/yii/framework/console/CConsoleCommandRunner.php(64): CConsoleCommandRunner->createCommand()
+#2 /Users/wangalrebt/Sites/testdrive/yii/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run()
+#3 /Users/wangalrebt/Sites/testdrive/yii/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#4 /Users/wangalrebt/Sites/testdrive/yii/framework/yiic.php(33): CConsoleApplication->run()
+#5 /Users/wangalrebt/Sites/testdrive/protected/yiic.php(7): require_once()
+#6 /Users/wangalrebt/Sites/testdrive/protected/yiic(4): require_once()
+
+2013/03/17 22:37:52 [error] [exception.CException] exception 'CException' with message 'Alias "auth.components.ICachedAuthManager" is invalid. Make sure it points to an existing directory or file.' in /Users/wangalrebt/Sites/testdrive/yii/framework/YiiBase.php:341
+Stack trace:
+#0 /Users/wangalrebt/Sites/testdrive/protected/models/auth/components/CachedDbAuthManager.php(10): YiiBase::import('auth.components...')
+#1 /Users/wangalrebt/Sites/testdrive/protected/commands/docs/DocsModel.php(32): require_once('/Users/wangalre...')
+#2 /Users/wangalrebt/Sites/testdrive/protected/commands/docs/DocsModel.php(20): DocsModel->findClasses(Array)
+#3 /Users/wangalrebt/Sites/testdrive/protected/commands/DocsCommand.php(307): DocsModel->build(Array, Array)
+#4 /Users/wangalrebt/Sites/testdrive/protected/commands/DocsCommand.php(152): DocsCommand->buildModel('/Users/wangalre...')
+#5 /Users/wangalrebt/Sites/testdrive/yii/framework/console/CConsoleCommandRunner.php(67): DocsCommand->run(Array)
+#6 /Users/wangalrebt/Sites/testdrive/yii/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#7 /Users/wangalrebt/Sites/testdrive/yii/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#8 /Users/wangalrebt/Sites/testdrive/yii/framework/yiic.php(33): CApplication->run()
+#9 /Users/wangalrebt/Sites/testdrive/protected/yiic.php(7): require_once('/Users/wangalre...')
+#10 /Users/wangalrebt/Sites/testdrive/protected/yiic(4): require_once('/Users/wangalre...')
+#11 {main}
+---

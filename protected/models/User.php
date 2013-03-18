@@ -4,6 +4,8 @@
  * This is the model class for table "users".
  *
  * The followings are the available columns in table 'users':
+ * @author wang yu
+ * @package application.model
  * @property string $name
  * @property string $email
  * @property string $password

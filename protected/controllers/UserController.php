@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Class UserController
+ *
+ * @package application.controllers
+ */
+
 class UserController extends Controller
 {
 	/**
