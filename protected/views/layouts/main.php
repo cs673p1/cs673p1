@@ -22,9 +22,11 @@
 <header class="navbar navbar-inverse navbar-fixed-top">
     <nav class="navbar-inner">
         <ul class="nav">
-            <li><?php echo CHtml::link('HOME', array('site/index')); ?></li>
-            <li><?php echo CHtml::link('Contact me', array('site/contact')); ?></li>
-            <li><?php echo CHtml::link('Sign in', array('user/create')); ?></li>
+            <li><?php echo CHtml::link('HOME', array('/site/index')); ?></li>
+            <li><?php echo CHtml::link('Contact me', array('/site/contact')); ?></li>
+            <li><?php echo Yii::app()->user->isGuest ? CHtml::link('Sign in', array('/site/login')) : ''; ?></li>
+            <li><?php echo Yii::app()->user->isGuest ? CHtml::link('Sign up', array('/user/create')) : ''; ?></li>
+            <li><?php echo !Yii::app()->user->isGuest ? CHtml::link('Logout', array('site/logout')) : ''; ?></li>
         </ul>
     </nav>
 </header>
@@ -41,10 +43,10 @@
     </div>
 </div>
 
-<div id="footer">
+<footer class="footer">
     Copyright &copy; by My Company.<br/>
     All Rights Reserved.<br/>
-</div><!-- footer -->
+</footer><!-- footer -->
 
 
 </body>
