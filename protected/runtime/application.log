@@ -669,3 +669,33 @@ Stack trace:
 #10 /Users/wangalrebt/Sites/testdrive/protected/yiic(4): require_once('/Users/wangalre...')
 #11 {main}
 ---
+2013/03/17 23:01:59 [error] [php] Only variables should be passed by reference (/Users/wangalrebt/Sites/testdrive/protected/commands/DocsCommand.php:356)
+Stack trace:
+#0 /Users/wangalrebt/Sites/testdrive/protected/commands/DocsCommand.php(203): DocsCommand->renderFile()
+#1 /Users/wangalrebt/Sites/testdrive/protected/commands/docs/views/class.php(15): DocsCommand->renderPartial()
+#2 /Users/wangalrebt/Sites/testdrive/yii/framework/console/CConsoleCommand.php(477): require()
+#3 /Users/wangalrebt/Sites/testdrive/protected/commands/DocsCommand.php(196): DocsCommand->renderFile()
+#4 /Users/wangalrebt/Sites/testdrive/protected/commands/DocsCommand.php(250): DocsCommand->render()
+#5 /Users/wangalrebt/Sites/testdrive/protected/commands/DocsCommand.php(158): DocsCommand->buildOfflinePages()
+#6 /Users/wangalrebt/Sites/testdrive/yii/framework/console/CConsoleCommandRunner.php(67): DocsCommand->run()
+#7 /Users/wangalrebt/Sites/testdrive/yii/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run()
+#8 /Users/wangalrebt/Sites/testdrive/yii/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#9 /Users/wangalrebt/Sites/testdrive/yii/framework/yiic.php(33): CConsoleApplication->run()
+#10 /Users/wangalrebt/Sites/testdrive/protected/yiic.php(7): require_once()
+#11 /Users/wangalrebt/Sites/testdrive/protected/yiic(4): require_once()
+
+2013/03/17 23:02:28 [error] [php] Only variables should be passed by reference (/Users/wangalrebt/Sites/testdrive/protected/commands/DocsCommand.php:356)
+Stack trace:
+#0 /Users/wangalrebt/Sites/testdrive/protected/commands/DocsCommand.php(203): DocsCommand->renderFile()
+#1 /Users/wangalrebt/Sites/testdrive/protected/commands/docs/views/class.php(15): DocsCommand->renderPartial()
+#2 /Users/wangalrebt/Sites/testdrive/yii/framework/console/CConsoleCommand.php(477): require()
+#3 /Users/wangalrebt/Sites/testdrive/protected/commands/DocsCommand.php(196): DocsCommand->renderFile()
+#4 /Users/wangalrebt/Sites/testdrive/protected/commands/DocsCommand.php(250): DocsCommand->render()
+#5 /Users/wangalrebt/Sites/testdrive/protected/commands/DocsCommand.php(158): DocsCommand->buildOfflinePages()
+#6 /Users/wangalrebt/Sites/testdrive/yii/framework/console/CConsoleCommandRunner.php(67): DocsCommand->run()
+#7 /Users/wangalrebt/Sites/testdrive/yii/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run()
+#8 /Users/wangalrebt/Sites/testdrive/yii/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#9 /Users/wangalrebt/Sites/testdrive/yii/framework/yiic.php(33): CConsoleApplication->run()
+#10 /Users/wangalrebt/Sites/testdrive/protected/yiic.php(7): require_once()
+#11 /Users/wangalrebt/Sites/testdrive/protected/yiic(4): require_once()
+
