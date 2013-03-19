@@ -39,11 +39,11 @@ class UserController extends Controller
             ),
             array('allow', // allow authenticated users to update/view
                 'actions'=>array('update','view'),
-                'users'=>array('@')
+                'users'=>array('*')
             ),
             array('allow', // allow admins only to delete
                 'actions'=>array('delete'),
-                'users'=>array('@')
+                'users'=>array('*')
             ),
             array('deny', // deny anything else
                 'users'=>array('*'),
