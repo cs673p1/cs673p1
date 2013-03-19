@@ -27,6 +27,7 @@
             <ul class="nav">
                 <li><?php echo CHtml::link('HOME', array('/site/index')); ?></li>
                 <li><?php echo CHtml::link('Contact me', array('/site/contact')); ?></li>
+                <li><?php echo CHtml::link('House', array('house/index')) ?></li>
             </ul>
             <div class="pull-right">
                 <ul class="nav">

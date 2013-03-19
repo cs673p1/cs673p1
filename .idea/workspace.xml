@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4bcab80b-603a-4847-ab03-7a2945140d29" name="Default" comment="" />
+    <list default="true" id="4bcab80b-603a-4847-ab03-7a2945140d29" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/views/layouts/main.php" afterPath="$PROJECT_DIR$/protected/views/layouts/main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="testdrive.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="4bcab80b-603a-4847-ab03-7a2945140d29" time="1363721162361" ignored="false" />
-    <file path="/main.php" changelist="4bcab80b-603a-4847-ab03-7a2945140d29" time="1363718567346" ignored="false" />
+    <file path="/main.php" changelist="4bcab80b-603a-4847-ab03-7a2945140d29" time="1363724302341" ignored="false" />
     <file path="/.gitignore" changelist="4bcab80b-603a-4847-ab03-7a2945140d29" time="1363575191969" ignored="false" />
     <file path="$PROJECT_DIR$/../home-opoly/Search/Search CSS files/search.css" changelist="4bcab80b-603a-4847-ab03-7a2945140d29" time="1363717678920" ignored="false" />
     <file path="$PROJECT_DIR$/../home-opoly/Search/search.php" changelist="4bcab80b-603a-4847-ab03-7a2945140d29" time="1363717737351" ignored="false" />
@@ -30,11 +33,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HouseController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HouseController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/controllers/HouseController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="14" selection-start="355" selection-end="355" vertical-scroll-proportion="-3.1362126">
+            <state line="155" column="34" selection-start="3825" selection-end="3825" vertical-scroll-proportion="-96.875">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="50" selection-start="1300" selection-end="1300" vertical-scroll-proportion="0.19524617">
+              <folding>
+                <marker date="1363724416000" expanded="true" signature="1475:1584" placeholder="..." />
+                <marker date="1363724416000" expanded="true" signature="1508:1584" placeholder="..." />
+                <marker date="1363724416000" expanded="true" signature="2106:2214" placeholder="..." />
+                <marker date="1363724416000" expanded="true" signature="2134:2214" placeholder="..." />
+                <marker date="1363724416000" expanded="true" signature="2398:2479" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,10 +92,10 @@
         <option value="$PROJECT_DIR$/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/index-test.php" />
-        <option value="$PROJECT_DIR$/protected/views/layouts/main.php" />
         <option value="$PROJECT_DIR$/protected/controllers/UserController.php" />
         <option value="$PROJECT_DIR$/protected/views/site/index.php" />
         <option value="$PROJECT_DIR$/protected/controllers/HouseController.php" />
+        <option value="$PROJECT_DIR$/protected/views/layouts/main.php" />
       </list>
     </option>
   </component>
@@ -247,6 +265,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testdrive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testdrive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="house" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -522,17 +562,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
+    <entry file="file://$PROJECT_DIR$/protected/controllers/HouseController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="32" selection-start="1427" selection-end="1427" vertical-scroll-proportion="0.4074703">
+        <state line="155" column="34" selection-start="3825" selection-end="3825" vertical-scroll-proportion="-96.875">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/HouseController.php">
+    <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="14" selection-start="355" selection-end="355" vertical-scroll-proportion="-3.1362126">
-          <folding />
+        <state line="28" column="50" selection-start="1300" selection-end="1300" vertical-scroll-proportion="0.19524617">
+          <folding>
+            <marker date="1363724416000" expanded="true" signature="1475:1584" placeholder="..." />
+            <marker date="1363724416000" expanded="true" signature="1508:1584" placeholder="..." />
+            <marker date="1363724416000" expanded="true" signature="2106:2214" placeholder="..." />
+            <marker date="1363724416000" expanded="true" signature="2134:2214" placeholder="..." />
+            <marker date="1363724416000" expanded="true" signature="2398:2479" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
