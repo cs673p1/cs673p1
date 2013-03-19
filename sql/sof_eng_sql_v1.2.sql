@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS `Address` (
   `address_line1` varchar(30) DEFAULT NULL,
   `address_line2` varchar(30) DEFAULT NULL,
   `city` char(19) DEFAULT NULL,
+  `state` char(2) DEFAULT NULL,
   `country` char(19) DEFAULT NULL,
   `h_id` int(11) NOT NULL,
   `a_id` int(11) NOT NULL,
@@ -43,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `Address` (
 --
 
 INSERT INTO `Address` (`zip_code`, `address_line1`, `address_line2`, `city`, `country`, `h_id`, `a_id`) VALUES
-(1604, '67 Commonwealth', '.', 'Worcester', 'USA', 1 , 1);
+(1604, '67 Commonwealth', '.', 'MA', 'Worcester', 'USA', 1 , 1);
 
 -- --------------------------------------------------------
 
@@ -94,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `House` (
 --
 
 INSERT INTO `House` (`h_id`, `h_rating`, `image`, `h_type`, `city`, `release_date`, `nof_room`, `price`) VALUES
-(1, '4.0', 'www.google.com', 'deck', 'Worchester', '0000-00-00', 2, 121917);
+(1, '4.0', 'www.google.com', 'deck', 'Worcester', '0000-00-00', 2, 121917);
 
 -- --------------------------------------------------------
 
