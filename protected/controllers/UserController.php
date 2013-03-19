@@ -20,7 +20,7 @@ class UserController extends Controller
     public function filters()
     {
         return array(
-            'accessControl', // perform access control for CRUD operations
+            //'accessControl', // perform access control for CRUD operations
             'postOnly + delete', // we only allow deletion via POST request
         );
     }
@@ -33,21 +33,6 @@ class UserController extends Controller
     public function accessRules()
     {
         return array(
-            array('allow', // allow anyone to register
-                'actions'=>array('create'),
-                'users'=>array('*'), // all users
-            ),
-            array('allow', // allow authenticated users to update/view
-                'actions'=>array('update','view'),
-                'users'=>array('*')
-            ),
-            array('allow', // allow admins only to delete
-                'actions'=>array('delete'),
-                'users'=>array('*')
-            ),
-            array('deny', // deny anything else
-                'users'=>array('*'),
-            ),
         );
     }
 
@@ -95,13 +80,16 @@ class UserController extends Controller
         $model=$this->loadModel($id);
 
         // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
+        $this->performAjaxValidation($model);
 
         // set the parameters for the bizRule
         $params = array('User'=>$model);
+        //uncomment to activate user access check
+        /*
         if (!Yii::app()->user->checkAccess('updateSelf', $params) && !Yii::app()->user->checkAccess('admin')){
             throw new CHttpException(403, 'You are not authorized to perform this action');
         }
+        */
 
         if(isset($_POST['User']))
         {
