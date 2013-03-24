@@ -1,4 +1,5 @@
 assets/*
+!assets/readme
 protected/runtime/*
 !protected/runtime/readme
 themes/classic/views/
