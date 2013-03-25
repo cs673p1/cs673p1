@@ -1,5 +1,5 @@
 assets/*
-!assets/readme
+!assets/readme.php
 protected/runtime/*
 !protected/runtime/readme
 themes/classic/views/
