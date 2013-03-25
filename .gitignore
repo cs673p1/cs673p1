@@ -3,4 +3,8 @@ assets/*
 protected/runtime/*
 !protected/runtime/readme
 themes/classic/views/
+<<<<<<< HEAD
 .idea/*
+=======
+
+>>>>>>> Update .gitignore
