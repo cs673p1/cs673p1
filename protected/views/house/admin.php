@@ -48,6 +48,15 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'city',
 		'state',
 		'zip_code',
+		/*
+		'description',
+		'number_of_floor',
+		'garage',
+		'garden',
+		'backdoor',
+		'number_of_bathroom',
+		'number_of_room',
+		*/
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),
