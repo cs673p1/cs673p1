@@ -2,6 +2,7 @@
 /* @var $this UserController */
 /* @var $model User */
 
+
 $this->breadcrumbs=array(
 	'Users'=>array('index'),
 	$model->name,
@@ -27,3 +28,10 @@ $this->menu=array(
 		'id',
 	),
 )); ?>
+
+<?php $houses=$model->house; ?>
+<?php foreach($houses as $house)
+{
+	echo $house->address_1;
+}; ?> 
+
