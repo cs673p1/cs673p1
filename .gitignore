@@ -10,3 +10,4 @@ themes/classic/views/
 *.DS_Store
 *.swp
 *.out
+.project
