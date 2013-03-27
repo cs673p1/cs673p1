@@ -47,6 +47,10 @@ class User extends CActiveRecord
             array('email, password', 'required'),
             array('password', 'compare'),
             array('password_repeat', 'safe'),
+            //valid the minimize length of password
+            array('password', 'length', 'min'=>8),
+            //valid attribute as valid email address
+            array('email', 'email'),
         );
     }
 

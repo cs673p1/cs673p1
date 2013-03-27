@@ -1,5 +1,12 @@
 assets/*
+!assets/readme.php
 protected/runtime/*
+!protected/runtime/readme.php
 themes/classic/views/
-Documentation/*
+.idea/*
 
+## generic files to ignore
+*.lock
+*.DS_Store
+*.swp
+*.out

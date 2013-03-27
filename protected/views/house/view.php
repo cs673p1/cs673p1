@@ -24,5 +24,12 @@ $this->menu=array(
 		'city',
 		'state',
 		'zip_code',
+		'description',
+		'number_of_floor',
+		'garage',
+		'garden',
+		'backdoor',
+		'number_of_bathroom',
+		'number_of_room',
 	),
 )); ?>
