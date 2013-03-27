@@ -11,3 +11,5 @@ themes/classic/views/
 *.swp
 *.out
 .project
+local.properties
+.metadata
