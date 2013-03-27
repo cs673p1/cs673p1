@@ -30,11 +30,26 @@ class UserController extends Controller
      * This method is used by the 'accessControl' filter.
      * @return array access control rules
      */
-    public function accessRules()
-    {
-        return array(
-        );
-    }
+    public function accessRules(){
+    return array(
+        array('allow', // allow anyone to register
+              'actions'=>array('create'), 
+              'users'=>array('*'), // all users
+        ),
+        array('allow', // allow authenticated users to update/view
+              'actions'=>array('update','view'), 
+              'roles'=>array('authenticated')
+        ),
+        array('allow', // allow admins only to delete
+              'actions'=>array('delete'), 
+              'roles'=>array('admin'),
+        ),
+        array('deny', // deny anything else
+              'users'=>array('*'),
+        ),
+    );
+}
+   
 
     /**
      * Displays a particular model.
@@ -85,11 +100,11 @@ class UserController extends Controller
         // set the parameters for the bizRule
         $params = array('User'=>$model);
         //uncomment to activate user access check
-        /*
+        
         if (!Yii::app()->user->checkAccess('updateSelf', $params) && !Yii::app()->user->checkAccess('admin')){
             throw new CHttpException(403, 'You are not authorized to perform this action');
         }
-        */
+        
 
         if(isset($_POST['User']))
         {
