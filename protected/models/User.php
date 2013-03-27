@@ -4,7 +4,7 @@
  * This is the model class for table "users".
  *
  * The followings are the available columns in table 'users':
- * @author wang yu
+ * @author wang yu, emily wu
  * @package application.model
  * @property string $name
  * @property string $email
@@ -62,8 +62,12 @@ class User extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-        );
+        'sellers' => array(
+       			self::HAS_ONE, 'Sellers', 'user_id'),
+        'house'=>array(
+                self::HAS_MANY,'House',array('house_id'=>'id'),'through'=>'sellers'));
     }
+
 
     /**
      * @return array customized attribute labels (name=>label)
