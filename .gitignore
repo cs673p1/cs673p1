@@ -10,6 +10,6 @@ themes/classic/views/
 *.DS_Store
 *.swp
 *.out
-.project
+*.project
 local.properties
-.metadata
+*.metadata
