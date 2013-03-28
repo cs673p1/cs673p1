@@ -10,13 +10,6 @@
  * @property string $city
  * @property string $state
  * @property integer $zip_code
- * @property string $description
- * @property integer $number_of_floor
- * @property string $garage
- * @property string $garden
- * @property string $backdoor
- * @property integer $number_of_bathroom
- * @property integer $number_of_room
  */
 class House extends CActiveRecord
 {
@@ -46,13 +39,12 @@ class House extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('zip_code, number_of_floor, number_of_bathroom, number_of_room', 'numerical', 'integerOnly'=>true),
+			array('zip_code', 'numerical', 'integerOnly'=>true),
 			array('address_1, address_2, state', 'length', 'max'=>256),
 			array('city', 'length', 'max'=>19),
-			array('garage, garden, backdoor', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, address_1, address_2, city, state, zip_code, description, number_of_floor, garage, garden, backdoor, number_of_bathroom, number_of_room', 'safe', 'on'=>'search'),
+			array('id, address_1, address_2, city, state, zip_code', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -64,6 +56,10 @@ class House extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+		'Sellers' => array(
+        self::HAS_MANY, 'Sellers', 'house_id'),
+		'User'=>array(
+                self::HAS_MANY,'Users',array('User_id'=>'id'),'through'=>'sellers'));
 		);
 	}
 
@@ -79,13 +75,6 @@ class House extends CActiveRecord
 			'city' => 'City',
 			'state' => 'State',
 			'zip_code' => 'Zip Code',
-			'description' => 'Description',
-			'number_of_floor' => 'Number Of Floor',
-			'garage' => 'Garage',
-			'garden' => 'Garden',
-			'backdoor' => 'Backdoor',
-			'number_of_bathroom' => 'Number Of Bathroom',
-			'number_of_room' => 'Number Of Room',
 		);
 	}
 
@@ -100,19 +89,12 @@ class House extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
+		$criteria->compare('id', $this->id);
 		$criteria->compare('address_1',$this->address_1,true);
 		$criteria->compare('address_2',$this->address_2,true);
 		$criteria->compare('city',$this->city,true);
 		$criteria->compare('state',$this->state,true);
 		$criteria->compare('zip_code',$this->zip_code);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('number_of_floor',$this->number_of_floor);
-		$criteria->compare('garage',$this->garage,true);
-		$criteria->compare('garden',$this->garden,true);
-		$criteria->compare('backdoor',$this->backdoor,true);
-		$criteria->compare('number_of_bathroom',$this->number_of_bathroom);
-		$criteria->compare('number_of_room',$this->number_of_room);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
