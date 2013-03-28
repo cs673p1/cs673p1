@@ -55,7 +55,7 @@ class Sellers extends CActiveRecord
 		'House' => array(
         self::BELONGS_TO, 'Houses', 'house_id'),
 		'User' => array(
-		self BELONGS_TO, 'Users', array('User_id'=>'id'),'through'=>'sellers'));
+		self::BELONGS_TO, 'Users', array('User_id'=>'id'),'through'=>'sellers'));
 		);
 	}
 
