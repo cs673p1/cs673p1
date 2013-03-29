@@ -1,7 +1,7 @@
 assets/*
-!assets/readme.php
+!assets/README.*
 protected/runtime/*
-!protected/runtime/readme.php
+!protected/runtime/README.*
 themes/classic/views/
 .idea/*
 
