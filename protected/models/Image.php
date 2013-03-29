@@ -10,6 +10,7 @@
  */
 class Image extends CActiveRecord
 {
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -52,7 +53,9 @@ class Image extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-		);
+           // 'house'=>array(self::BELONG_TO, 'house', 'house_id'),
+            
+        );
 	}
 
 	/**
