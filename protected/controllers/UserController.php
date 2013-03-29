@@ -33,6 +33,22 @@ class UserController extends Controller
     public function accessRules()
     {
         return array(
+            array('allow', // allow anyone to register
+                'actions'=>array('create'),
+                'users'=>array('*'), // all users
+            ),
+            array('allow', // allow authenticated users to update/view
+                'actions'=>array('update','view'),
+                'roles'=>array('authenticated')
+            ),
+            array('allow', // allow admins only to delete
+                'actions'=>array('delete'),
+                'roles'=>array('admin')
+            ),
+            array('deny', // deny anything else
+                'users'=>array('*'),
+            ),
+
         );
     }
 
@@ -42,6 +58,11 @@ class UserController extends Controller
      */
     public function actionView($id)
     {
+        $model=$this->loadModel($id);
+        $params = array('User'=>$model);
+        if (!Yii::app()->user->checkAccess('updateSelf', $params) && !Yii::app()->user->checkAccess('admin')){
+            throw new CHttpException(403, 'You are not authorized to perform this action');
+        }
         $this->render('view',array(
             'model'=>$this->loadModel($id),
         ));
@@ -97,11 +118,11 @@ class UserController extends Controller
         // set the parameters for the bizRule
         $params = array('User'=>$model);
         //uncomment to activate user access check
-        /*
+
         if (!Yii::app()->user->checkAccess('updateSelf', $params) && !Yii::app()->user->checkAccess('admin')){
             throw new CHttpException(403, 'You are not authorized to perform this action');
         }
-        */
+
 
         if(isset($_POST['User']))
         {

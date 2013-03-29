@@ -75,7 +75,7 @@ return array(
         ),
 
         //uncomment the following to use authmananger
-        /*
+
         'authManager'=>array(
             'class'=>'CDbAuthManager',
             'connectionID'=>'db',
@@ -84,7 +84,7 @@ return array(
             'itemChildTable' => 'AuthItemChild',
             'defaultRoles'=>array('authenticated', 'guest'),
         ),
-        */
+
 
         'errorHandler'=>array(
             // use 'site/error' action to display errors
