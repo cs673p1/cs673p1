@@ -1,3 +1,4 @@
+
 <?php
 $this->breadcrumbs=array(
 	'Houses'=>array('index'),
@@ -33,3 +34,29 @@ $this->menu=array(
 		'number_of_room',
 	),
 )); ?>
+ 
+
+<h1>View Image #<?php echo $model->id; $image=$model->id;?></h1>
+
+<?php $this->widget('zii.widgets.CDetailView', array(
+	'data'=>$model,
+	'attributes'=>array(
+		'id',
+		'house_id',
+		'image_address',
+	),
+)); ?>
+
+
+
+<?php $images = $model->images ?>
+ 
+<?php foreach ($images as $image): ?>
+ <img src ="<?php echo $image->image_address; ?>">
+ <?php endforeach; ?>
+ 
+ 
+ 
+ 
+ 
+ 
