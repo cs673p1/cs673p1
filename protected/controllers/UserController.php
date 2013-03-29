@@ -170,4 +170,30 @@ class UserController extends Controller
             Yii::app()->end();
         }
     }
+    //send email
+    public function actionSendemail() {
+    	$Email = $_POST['email'];
+		$success = false;
+		$formError = false;
+
+		if (empty($_POST['email'])) {
+			$formError = "true";
+			$error = "Please enter your e-mail address.";
+		} else {
+			$to = $Email;
+			$subject = "Password Help";
+			$message = "To reset your password, please <a href='http://www.blahblahblah.org'>Click here</a><br /><br />Do LIFE,<br /> The Team";
+			$from = "yuwang1@bu.edu";
+			$headers = 'MIME-Version: 1.0' . "\n";
+			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\n";
+			$headers .= "From: $from";
+			if (mail($to, $subject, $message, $headers));				
+			{
+				$success = "true";
+			}
+
+		}
+
+
+	}
 }
