@@ -18,6 +18,8 @@
  * @property integer $number_of_bathroom
  * @property integer $number_of_room
  */
+  
+
 class House extends CActiveRecord
 {
 	/**
@@ -53,6 +55,8 @@ class House extends CActiveRecord
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, address_1, address_2, city, state, zip_code, description, number_of_floor, garage, garden, backdoor, number_of_bathroom, number_of_room', 'safe', 'on'=>'search'),
+		    
+		
 		);
 	}
 
@@ -64,7 +68,9 @@ class House extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-		);
+           'images'=>array(self::HAS_MANY, 'Image', 'house_id'),
+             
+        );
 	}
 
 	/**
@@ -88,6 +94,9 @@ class House extends CActiveRecord
 			'number_of_room' => 'Number Of Room',
 		);
 	}
+
+	
+	
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
