@@ -66,55 +66,55 @@ class House extends CActiveRecord
     }
 
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-        
-		return array(
-			'id' => 'ID',
-			'address_1' => 'Address 1',
-			'address_2' => 'Address 2',
-			'city' => 'City',
-			'state' => 'State',
-			'zip_code' => 'Zip Code',
-			'description' => 'Description',
-			'number_of_floor' => 'Number Of Floor',
-			'garage' => 'Garage',
-			'garden' => 'Garden',
-			'backdoor' => 'Backdoor',
-			'number_of_bathroom' => 'Number Of Bathroom',
-			'number_of_room' => 'Number Of Room',
-		);
-	}
+    /**
+     * @return array customized attribute labels (name=>label)
+     */
+    public function attributeLabels()
+    {
+
+        return array(
+            'id' => 'ID',
+            'address_1' => 'Address 1',
+            'address_2' => 'Address 2',
+            'city' => 'City',
+            'state' => 'State',
+            'zip_code' => 'Zip Code',
+            'description' => 'Description',
+            'number_of_floor' => 'Number Of Floor',
+            'garage' => 'Garage',
+            'garden' => 'Garden',
+            'backdoor' => 'Backdoor',
+            'number_of_bathroom' => 'Number Of Bathroom',
+            'number_of_room' => 'Number Of Room',
+        );
+    }
 
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+    /**
+     * Retrieves a list of models based on the current search/filter conditions.
+     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+     */
+    /**
+     * Retrieves a list of models based on the current search/filter conditions.
+     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+     */
+    public function search()
+    {
+        // Warning: Please modify the following code to remove attributes that
+        // should not be searched.
 
+        $criteria=new CDbCriteria;
 
-		$criteria=new CDbCriteria;
-        
-		$criteria->compare('id',$this->id);
-		$criteria->compare('address_1',$this->address_1,true);
-		$criteria->compare('address_2',$this->address_2,true);
-		$criteria->compare('city',$this->city,true);
-		$criteria->compare('state',$this->state,true);
-		$criteria->compare('zip_code',$this->zip_code);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('number_of_floor',$this->number_of_floor);
-		$criteria->compare('garage',$this->garage,true);
-		$criteria->compare('garden',$this->garden,true);
-		$criteria->compare('backdoor',$this->backdoor,true);
-		$criteria->compare('number_of_bathroom',$this->number_of_bathroom);
-		$criteria->compare('number_of_room',$this->number_of_room);
+        $criteria->compare('id', $this->id);
+        $criteria->compare('address_1',$this->address_1,true);
+        $criteria->compare('address_2',$this->address_2,true);
+        $criteria->compare('city',$this->city,true);
+        $criteria->compare('state',$this->state,true);
+        $criteria->compare('zip_code',$this->zip_code);
+
+        return new CActiveDataProvider($this, array(
+            'criteria'=>$criteria,
+        ));
     }
 
 }
