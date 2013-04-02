@@ -108,7 +108,7 @@ class House extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
-
+        
 		$criteria->compare('id',$this->id);
 		$criteria->compare('address_1',$this->address_1,true);
 		$criteria->compare('address_2',$this->address_2,true);
