@@ -81,6 +81,7 @@ EOD;
 				'/vendors',
 				'/config',
 				'/tests',
+                '/lib',
 				
 			),
 		);

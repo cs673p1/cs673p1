@@ -6,7 +6,7 @@ namespace PhotoAlbum {
 
     // Sets up Cloudinary's parameters and RB's DB
     include 'settings.php';
-
+/*
     // Global settings
     if (array_key_exists('REQUEST_SCHEME', $_SERVER)) {
         $cors_location = $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"] .
@@ -17,14 +17,14 @@ namespace PhotoAlbum {
 
     $thumbs_params = array("format" => "jpg", "height" => 150, "width" => 150,
         "class" => "thumbnail inline");
-
+*/
     // Helper functions
     function ret_var_dump($var) {
         ob_start();
         var_dump($var);
         return ob_get_clean();
     }
-
+/*
     function array_to_table($array) {
         $saved_error_reporting = error_reporting(0);
         echo "<table class='info'>";
@@ -56,6 +56,8 @@ namespace PhotoAlbum {
         }
 
         $id = \R::store($photo);
+
     }
+*/
 }
 

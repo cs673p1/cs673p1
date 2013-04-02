@@ -26,8 +26,28 @@
 			<param name="Local" value="Controller.html">
 			</object>
 			<li><object type="text/sitemap">
+			<param name="Name" value="House">
+			<param name="Local" value="House.html">
+			</object>
+			<li><object type="text/sitemap">
+			<param name="Name" value="HouseController">
+			<param name="Local" value="HouseController.html">
+			</object>
+			<li><object type="text/sitemap">
+			<param name="Name" value="Image">
+			<param name="Local" value="Image.html">
+			</object>
+			<li><object type="text/sitemap">
+			<param name="Name" value="ImageController">
+			<param name="Local" value="ImageController.html">
+			</object>
+			<li><object type="text/sitemap">
 			<param name="Name" value="RbacCommand">
 			<param name="Local" value="RbacCommand.html">
+			</object>
+			<li><object type="text/sitemap">
+			<param name="Name" value="Sellers">
+			<param name="Local" value="Sellers.html">
 			</object>
 			<li><object type="text/sitemap">
 			<param name="Name" value="UserIdentity">
