@@ -41,6 +41,18 @@ namespace Cloudinary {
             return Uploader::call_api("destroy", $params, $options);
         }
 
+        public static function rename($from_public_id, $to_public_id, $options = array())
+        {
+            $params = array(
+                "timestamp" => time(),
+                "type" => \Cloudinary::option_get($options, "type"),
+                "from_public_id" => $from_public_id,
+                "to_public_id" => $to_public_id,
+                "overwrite" => \Cloudinary::option_get($options, "overwrite")
+            );
+            return Uploader::call_api("rename", $params, $options);
+        }
+
         public static function explicit($public_id, $options = array())
         {
             $params = array(
@@ -58,7 +70,7 @@ namespace Cloudinary {
         public static function generate_sprite($tag, $options = array())
         {
             $transformation = \Cloudinary::generate_transformation_string(
-              array_merge(array("fetch_format"=>\Cloudinary::option_get($options, "format")), $options));
+                array_merge(array("fetch_format"=>\Cloudinary::option_get($options, "format")), $options));
             $params = array(
                 "timestamp" => time(),
                 "tag" => $tag,
@@ -100,7 +112,7 @@ namespace Cloudinary {
         // options may include 'exclusive' (boolean) which causes clearing this tag from all other resources
         public static function add_tag($tag, $public_ids = array(), $options = array())
         {
-            $exclusive = \Cloudinary::option_get("exclusive");
+            $exclusive = \Cloudinary::option_get($options, "exclusive");
             $command = $exclusive ? "set_exclusive" : "add";
             return Uploader::call_tags_api($tag, $command, $public_ids, $options);
         }
@@ -149,23 +161,25 @@ namespace Cloudinary {
             $params["signature"] = \Cloudinary::api_sign_request($params, $api_secret);
             $params["api_key"] = $api_key;
 
-            # Remove blank parameters
-            $params = array_filter($params);
-
             $api_url = \Cloudinary::cloudinary_api_url($action, $options);
+
+            # Serialize params
+            $api_url .= "?" . preg_replace("/%5B\d+%5D/", "%5B%5D", http_build_query(array_filter($params)));
+
             $ch = curl_init($api_url);
 
+            $post_params = array();
             if ($file) {
                 if (!preg_match('/^https?:/', $file) && $file[0] != "@") {
-                    $params["file"] = "@" . $file;
+                    $post_params["file"] = "@" . $file;
                 } else {
-                    $params["file"] = $file;
+                    $post_params["file"] = $file;
                 }
             }
 
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_TIMEOUT, 60);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $post_params);
             curl_setopt($ch, CURLOPT_CAINFO,realpath(dirname(__FILE__))."/cacert.pem");
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $response = curl_exec($ch);
@@ -202,7 +216,7 @@ namespace Cloudinary {
             $eager = array();
             foreach (\Cloudinary::build_array($transformations) as $trans) {
                 $transformation = $trans;
-                $format = \Cloudinary::option_consume($tranformation, "format");
+                $format = \Cloudinary::option_consume($transformations, "format");
                 $single_eager = implode("/", array_filter(array(\Cloudinary::generate_transformation_string($transformation), $format)));
                 array_push($eager, $single_eager);
             }
@@ -277,4 +291,3 @@ namespace {
         return $form;
     }
 }
-?>
