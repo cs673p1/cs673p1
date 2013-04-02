@@ -1,3 +1,4 @@
+
 <?php
 $this->breadcrumbs=array(
 	'Houses'=>array('index'),
@@ -33,3 +34,49 @@ $this->menu=array(
 		'number_of_room',
 	),
 )); ?>
+ 
+
+<h1>View Image #<?php echo $model->id; $image=$model->id;?></h1>
+
+<?php $this->widget('zii.widgets.CDetailView', array(
+	'data'=>$model,
+	'attributes'=>array(
+		'id',
+		'house_id',
+		'image_address',
+	),
+)); ?>
+
+
+
+<?php $images = $model->images ?>
+ 
+<?php foreach ($images as $image): ?>
+ <img src ="<?php echo $image->image_address; ?>" height="200" width="300">
+ <?php endforeach; ?>
+
+
+<div id='backend_upload'>
+    <h4>Upload a photo</h4>
+    <form action="<?php echo $this->createUrl('image/create'); ?>" method="post" enctype="multipart/form-data">
+
+        <input type="file"   name="files[]" multiple accept="image/gif, image/jpeg, image/png">
+        <input id="house_id"   type="hidden" name="house_id" value= "<?php echo $model->id?>">
+        <input type="submit" value="Upload">
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 

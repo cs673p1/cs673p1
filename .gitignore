@@ -13,3 +13,4 @@ themes/classic/views/
 *.project
 local.properties
 *.metadata
+*.htaccess
