@@ -89,6 +89,7 @@ class ImageController extends Controller
 
                 $model->house_id = $_POST['house_id'];
 
+
                 if($model->save())
                     $this->redirect(array('view','id'=>$model->id));
             }
