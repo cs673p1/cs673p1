@@ -10,6 +10,14 @@
  * @property string $city
  * @property string $state
  * @property integer $zip_code
+ * @property string $description
+ * @property integer $number_of_floor
+ * @property string $garage
+ * @property string $garden
+ * @property string $backdoor
+ * @property integer $number_of_bathroom
+ * @property integer $number_of_room
+ * @property string $title
  */
 
 
@@ -55,12 +63,13 @@ class House extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
+            array('title, address_1, state, zip_code ', 'required'),
             array('zip_code', 'numerical', 'integerOnly'=>true),
             array('address_1, address_2, state', 'length', 'max'=>256),
             array('city', 'length', 'max'=>19),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('id, address_1, address_2, city, state, zip_code, description, number_of_floor, garage, garden, backdoor, number_of_bathroom, number_of_room', 'safe', 'on'=>'search'),
+            array('id, address_1, address_2, city, state, zip_code, description, number_of_floor, garage, garden, backdoor, number_of_bathroom, number_of_room, title', 'safe', 'on'=>'search'),
 
         );
     }
@@ -86,6 +95,8 @@ class House extends CActiveRecord
             'backdoor' => 'Backdoor',
             'number_of_bathroom' => 'Number Of Bathroom',
             'number_of_room' => 'Number Of Room',
+            'title' => 'Title',
+
         );
     }
 

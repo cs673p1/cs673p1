@@ -23,31 +23,29 @@
 <body>
 <header class="navbar navbar-inverse navbar-fixed-top">
     <nav class="navbar-inner">
-        <div class="container-fluid">
+        <div class="container">
             <ul class="nav">
                 <li><?php echo CHtml::link('HOME', array('/site/index')); ?></li>
-                <li><?php echo CHtml::link('Contact me', array('/site/contact')); ?></li>
-                <li><?php echo CHtml::link('House', array('house/index')) ?></li>
+                <li><?php echo CHtml::link('CONTACT ME', array('/site/contact')); ?></li>
+                <li><?php echo CHtml::link('HOUSE', array('house/index')) ?></li>
             </ul>
             <div class="pull-right">
                 <ul class="nav">
                     <li><?php echo Yii::app()->user->isGuest ? CHtml::link('Sign in', array('/site/login')) :
-                            CHtml::link('Dashboard', array('/user/update', 'id'=>Yii::app()->user->getId())); ?></li>
+                            CHtml::link('Dashboard', array('user/update', 'id'=>Yii::app()->user->getId())); ?></li>
                     <li><?php echo Yii::app()->user->isGuest ? CHtml::link('Sign up', array('/user/create')) : ''; ?></li>
                     <li><?php echo !Yii::app()->user->isGuest ? CHtml::link('Logout', array('/site/logout')) : ''; ?></li>
                 </ul>
             </div>
-
         </div>
     </nav>
 </header>
 
 <div class="main" style="min-height: 500px">
     <div class="container">
-        <?php if(isset($this->breadcrumbs)):?>
-            <?php $this->widget('zii.widgets.CBreadcrumbs', array('links'=>$this->breadcrumbs,)); ?><!-- breadcrumbs -->
-        <?php endif?>
-        <?php echo $content; ?>
+        <div class="content">
+            <?php echo $content; ?>
+        </div>
     </div>
 </div>
 <footer class="footer">

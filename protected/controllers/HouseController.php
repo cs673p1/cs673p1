@@ -127,9 +127,10 @@ class HouseController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('House');
+        $houses = House::model()->findAll();
+        $dataProvider=new CActiveDataProvider('House');
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+			'houses'=>$houses,
 		));
 	}
 
