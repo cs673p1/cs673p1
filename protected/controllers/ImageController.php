@@ -1,5 +1,5 @@
 <?php
-
+require_once dirname(dirname(__FILE__))."/lib/main.php";
 
 class ImageController extends Controller
 {
@@ -63,7 +63,6 @@ class ImageController extends Controller
      */
     public function actionCreate()
     {
-        require_once "lib/main.php";
         $model=new Image;
 
         // Uncomment the following line if AJAX validation is needed

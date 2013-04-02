@@ -148,7 +148,23 @@ class HouseController extends Controller
 		));
 	}
 
-	/**
+    /**
+     * Return the data model based on input argument
+     * @param string address_1
+     * @param string address_2
+     * @param string city
+     * @param string state
+     * @param string zip code
+     *
+     */
+
+    public function actionSearch(){
+        //TODO add search logical at here
+        $model = null;
+        return $model;
+    }
+
+    /**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer the ID of the model to be loaded
@@ -163,7 +179,7 @@ class HouseController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param CModel the model to be validated
+	 * @param CModel model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
