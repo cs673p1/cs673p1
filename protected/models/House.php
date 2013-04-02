@@ -51,34 +51,28 @@ class House extends CActiveRecord
         );
     }
 
-    /**
-     * @return array relational rules.
-     */
-    public function relations()
-    {
-        // NOTE: you may need to adjust the relation name and the related
-        // class name for the relations automatically generated below.
-        return array(
-            'images'=>array(self::HAS_MANY, 'Image', 'house_id'),
-            'Sellers' => array(self::HAS_MANY, 'Sellers', 'house_id'),
-            'User'=>array(self::HAS_MANY,'Users',array('User_id'=>'id'),'through'=>'sellers')
-        );
-    }
-
-    /**
-     * @return array customized attribute labels (name=>label)
-     */
-    public function attributeLabels()
-    {
-        return array(
-            'id' => 'ID',
-            'address_1' => 'Address 1',
-            'address_2' => 'Address 2',
-            'city' => 'City',
-            'state' => 'State',
-            'zip_code' => 'Zip Code',
-        );
-    }
+	/**
+	 * @return array customized attribute labels (name=>label)
+	 */
+	public function attributeLabels()
+	{
+        
+		return array(
+			'id' => 'ID',
+			'address_1' => 'Address 1',
+			'address_2' => 'Address 2',
+			'city' => 'City',
+			'state' => 'State',
+			'zip_code' => 'Zip Code',
+			'description' => 'Description',
+			'number_of_floor' => 'Number Of Floor',
+			'garage' => 'Garage',
+			'garden' => 'Garden',
+			'backdoor' => 'Backdoor',
+			'number_of_bathroom' => 'Number Of Bathroom',
+			'number_of_room' => 'Number Of Room',
+		);
+	}
 
 
 	/**
