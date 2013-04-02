@@ -78,6 +78,7 @@ class House extends CActiveRecord
 	 */
 	public function attributeLabels()
 	{
+        
 		return array(
 			'id' => 'ID',
 			'address_1' => 'Address 1',
