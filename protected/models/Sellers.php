@@ -52,6 +52,10 @@ class Sellers extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+		'House' => array(
+        self::BELONGS_TO, 'Houses', 'house_id'),
+		'User' => array(
+		self ::BELONGS_TO, 'Users', 'User_id'),
 		);
 	}
 

@@ -5,6 +5,7 @@ protected/runtime/*
 themes/classic/views/
 .idea/*
 
+
 ## generic files to ignore
 *.lock
 *.DS_Store
