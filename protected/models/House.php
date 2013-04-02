@@ -90,18 +90,22 @@ class House extends CActiveRecord
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
 
-        $criteria=new CDbCriteria;
 
-        $criteria->compare('id', $this->id);
-        $criteria->compare('address_1',$this->address_1,true);
-        $criteria->compare('address_2',$this->address_2,true);
-        $criteria->compare('city',$this->city,true);
-        $criteria->compare('state',$this->state,true);
-        $criteria->compare('zip_code',$this->zip_code);
-
-        return new CActiveDataProvider($this, array(
-            'criteria'=>$criteria,
-        ));
+		$criteria=new CDbCriteria;
+        
+		$criteria->compare('id',$this->id);
+		$criteria->compare('address_1',$this->address_1,true);
+		$criteria->compare('address_2',$this->address_2,true);
+		$criteria->compare('city',$this->city,true);
+		$criteria->compare('state',$this->state,true);
+		$criteria->compare('zip_code',$this->zip_code);
+		$criteria->compare('description',$this->description,true);
+		$criteria->compare('number_of_floor',$this->number_of_floor);
+		$criteria->compare('garage',$this->garage,true);
+		$criteria->compare('garden',$this->garden,true);
+		$criteria->compare('backdoor',$this->backdoor,true);
+		$criteria->compare('number_of_bathroom',$this->number_of_bathroom);
+		$criteria->compare('number_of_room',$this->number_of_room);
     }
 
 }
