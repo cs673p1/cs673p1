@@ -13,15 +13,7 @@
     </div>
 </div>
 <div class="span9">
-    <div>
-        <h4>Upload a photo</h4>
-        <form action="<?php echo $this->createUrl('image/create'); ?>" method="post" enctype="multipart/form-data">
-            <input type="file"   name="files[]" multiple accept="image/gif, image/jpeg, image/png">
-            <input id="house_id"   type="hidden" name="house_id" value= "<?php echo $model->id?>">
-            <input type="submit" value="Upload">
-        </form>
-    </div>
-    <?php $this->widget('bootstrap.widgets.TbDetailView',array(
+   <?php $this->widget('bootstrap.widgets.TbDetailView',array(
         'data'=>$model,
         'attributes'=>array(
             'id',
