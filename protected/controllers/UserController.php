@@ -48,6 +48,18 @@ class UserController extends Controller
     }
 
     /**
+     * Display a settings page for particular model
+     * @param integer $id the ID of the model to be set up
+     */
+
+    public function actionSetting($id)
+    {
+        $this->render('setting', array(
+            'model'=>$this->loadModel($id),
+        ));
+    }
+
+    /**
      * Creates a new model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
