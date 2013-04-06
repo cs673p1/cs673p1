@@ -32,7 +32,7 @@
             <div class="pull-right">
                 <ul class="nav">
                     <li><?php echo Yii::app()->user->isGuest ? CHtml::link('Sign in', array('/site/login')) :
-                            CHtml::link('Dashboard', array('user/update', 'id'=>Yii::app()->user->getId())); ?></li>
+                            CHtml::link('Dashboard', array('user/setting', 'id'=>Yii::app()->user->getId())); ?></li>
                     <li><?php echo Yii::app()->user->isGuest ? CHtml::link('Sign up', array('/user/create')) : ''; ?></li>
                     <li><?php echo !Yii::app()->user->isGuest ? CHtml::link('Logout', array('/site/logout')) : ''; ?></li>
                 </ul>

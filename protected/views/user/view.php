@@ -1,6 +1,6 @@
 
 
-<h1>View User #<?php echo $model->name; ?></h1>
+<h1>Welcome <?php echo $model->name; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
     'data'=>$model,
@@ -41,6 +41,7 @@ echo"You Have No Houses Yet! ";
                         'class' => 'delete','confirm'=>'This will remove the image. Are you sure?'
                     )) ; ?>
 		<div><?php echo CHtml::link('Update House', array('house/update')); ?></div>
+		
 		
     <?php $count ++; ?>
 <?php  endforeach; ?>
