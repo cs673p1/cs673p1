@@ -1,6 +1,10 @@
 
+<<<<<<< HEAD
 
 <h1>Welcome <?php echo $model->name; ?></h1>
+=======
+<h1>View User #<?php echo $model->name; ?></h1>
+>>>>>>> 7e91d5c7cf0ccf73e174c1bd3355fedf05aa7f99
 
 <?php $this->widget('zii.widgets.CDetailView', array(
     'data'=>$model,
@@ -35,12 +39,12 @@ echo"You Have No Houses Yet! ";
         <?php echo $house->address_2;?> </div>
     <div><?php echo $house->city; ?> <?php echo $house->state; ?>
         <?php echo $house->zip_code; ?></div>
-		<?php echo CHtml::link('Delete house', array('house/delete', 'id'=>$model->id),
+		<?php echo CHtml::link('Delete house', array('house/delete', 'id'=>$house->id),
                     array(
-                        'submit'=>array('house/delete', 'id'=>$model->id),
+                        'submit'=>array('house/delete', 'id'=>$house->id),
                         'class' => 'delete','confirm'=>'This will remove the image. Are you sure?'
                     )) ; ?>
-		<div><?php echo CHtml::link('Update House', array('house/update')); ?></div>
+		<div><?php echo CHtml::link('Update House', array('house/update', 'id'=>$house->id); ?></div>
 		
 		
     <?php $count ++; ?>
