@@ -8,4 +8,4 @@ PHP DOC
 -------
 Generate php documents
 
-    protected/yiic docs docs noviews
+    $ protected/yiic docs docs noviews
