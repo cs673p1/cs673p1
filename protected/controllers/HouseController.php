@@ -62,15 +62,22 @@ class HouseController extends Controller
     public function actionCreate()
     {
         $model=new House;
+        //save house id and user id to seller table
+        $seller = new Sellers;
 
         // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
+        $this->performAjaxValidation($model);
 
         if(isset($_POST['House']))
         {
             $model->attributes=$_POST['House'];
-            if($model->save())
-                $this->redirect(array('view','id'=>$model->id));
+
+            if($model->save()){
+                $seller->house_id = $model->id;
+                $seller->user_id = Yii::app()->user->id;
+                if($seller->save())
+                    $this->redirect(array('view','id'=>$model->id));
+            }
         }
 
         $this->render('create',array(

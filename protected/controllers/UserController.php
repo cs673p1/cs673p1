@@ -34,11 +34,11 @@ class UserController extends Controller
     {
         return array(
             array('allow', // allow anyone to register
-                'actions'=>array('create'),
+                'actions'=>array('create', 'view'),
                 'users'=>array('*'), // all users
             ),
             array('allow', // allow authenticated users to update/view
-                'actions'=>array('update','view'),
+                'actions'=>array('update','setting'),
                 'roles'=>array('authenticated')
             ),
             array('allow', // allow admins only to delete

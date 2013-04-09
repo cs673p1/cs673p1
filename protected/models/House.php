@@ -50,7 +50,7 @@ class House extends CActiveRecord
         // class name for the relations automatically generated below.
         return array(
             'images'=>array(self::HAS_MANY, 'Image', 'house_id'),
-
+            'seller'=>array(self::HAS_MANY, 'Sellers', 'house_id'),
         );
     }
 

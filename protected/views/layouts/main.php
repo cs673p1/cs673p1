@@ -26,7 +26,6 @@
         <div class="container">
             <ul class="nav">
                 <li><?php echo CHtml::link('HOME', array('/site/index')); ?></li>
-                <li><?php echo CHtml::link('CONTACT ME', array('/site/contact')); ?></li>
                 <li><?php echo CHtml::link('HOUSE', array('house/index')) ?></li>
             </ul>
             <div class="pull-right">
@@ -49,6 +48,7 @@
     </div>
 </div>
 <footer class="footer">
+    <?php echo CHtml::link('CONTACT US', array('/site/contact')); ?>
     Copyright &copy; by My Company.<br/>
     All Rights Reserved.<br/>
 </footer><!-- footer -->
