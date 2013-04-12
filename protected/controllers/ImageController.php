@@ -37,7 +37,7 @@ class ImageController extends Controller
                 'roles'=>array('authenticated'),
             ),
             array('allow', // allow authenticated user and himself to update/delete
-                'actions'=>array('update', 'delete'),
+                'actions'=>array('update', 'delete', 'admin'),
                 'roles'=>array('authenticated')
             ),
             array('deny',  // deny all users
