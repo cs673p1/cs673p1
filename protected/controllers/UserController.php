@@ -42,7 +42,7 @@ class UserController extends Controller
                 'roles'=>array('authenticated')
             ),
             array('allow', // allow admins only to delete
-                'actions'=>array('delete'),
+                'actions'=>array('delete', 'admin'),
                 'roles'=>array('admin')
             ),
             array('deny', // deny anything else
