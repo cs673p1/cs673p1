@@ -18,6 +18,8 @@
     </div>
 </div>
 <div class="span9">
+    <?php echo $model->user->name ; ?>
+
     <?php $this->widget('bootstrap.widgets.TbDetailView',array(
         'data'=>$model,
         'attributes'=>array(
@@ -44,7 +46,6 @@
     <?php foreach ($images as $image): ?>
         <img src="<?php echo $image->image_address; ?>" class="img-rounded"height="200" width="300">
     <?php endforeach; ?>
-
 
 
 </div>
