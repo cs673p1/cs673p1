@@ -21,7 +21,7 @@
     <?php $this->widget('bootstrap.widgets.TbDetailView',array(
         'data'=>$model,
         'attributes'=>array(
-            'id',
+            'title',
             'address_1',
             'address_2',
             'city',

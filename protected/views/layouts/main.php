@@ -2,23 +2,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php Yii::app()->bootstrap->register(); ?>
-
-
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="language" content="en" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css" />
-
-    <!-- twitter bootstrap -->
-    <!--    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/bootstrap/css/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css" />
-
-    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/bootstrap/js/bootstrap.min.js" ></script>
--->
+    <?php Yii::app()->bootstrap->register(); ?>
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
 
@@ -45,10 +35,14 @@
             'class'=>'bootstrap.widgets.TbMenu',
             'htmlOptions'=>array('class'=>'pull-right'),
             'items'=>array(
-                array('label'=>'Dashboard', 'url'=>array('/user/view', 'id'=>Yii::app()->user->getId())),
-                array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-                array('label'=>'Sign Up', 'url'=>array('/user/create'), 'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'Dashboard', 'url'=>array('/user/view',
+                    'id'=>Yii::app()->user->getId()), 'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Login', 'url'=>array('/site/login'),
+                    'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'),
+                    'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Sign Up', 'url'=>array('/user/create'),
+                    'visible'=>Yii::app()->user->isGuest),
             ),
         ),
     ),
@@ -57,7 +51,6 @@
 <div class="main" style="min-height: 500px">
     <div class="container">
         <?php echo $content; ?>
-
     </div>
 </div>
 

@@ -44,7 +44,7 @@ class User extends CActiveRecord
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('name, email, password', 'safe', 'on'=>'search'),
-            array('email, password', 'required'),
+            array('name, email, password', 'required'),
             array('password', 'compare'),
             array('password_repeat', 'safe'),
             //valid the minimize length of password
