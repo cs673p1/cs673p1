@@ -35,8 +35,12 @@
             'class'=>'bootstrap.widgets.TbMenu',
             'htmlOptions'=>array('class'=>'pull-right'),
             'items'=>array(
-                array('label'=>'Dashboard', 'url'=>array('/user/view',
-                    'id'=>Yii::app()->user->getId()), 'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Dashboard', 'url'=>array('/user/setting',
+                    'id'=>Yii::app()->user->getId()), 'visible'=>!Yii::app()->user->isGuest,
+                    'items'=>array(
+                        array('label'=>'Update Profile', 'url'=>array('/user/update', 'id'=>Yii::app()->user->getId())),
+                        array('label'=>'Manage My House', 'url'=>array('/user/setting','id'=>Yii::app()->user->getId())),
+                    )),
                 array('label'=>'Login', 'url'=>array('/site/login'),
                     'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'),

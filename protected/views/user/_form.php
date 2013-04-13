@@ -11,10 +11,9 @@
 
 <?php echo $form->textFieldRow($model,'email',array('class'=>'span5','maxlength'=>128)); ?>
 
-<?php echo $form->passwordFieldRow($model,'password',array('class'=>'span5','maxlength'=>128)); ?>
+<?php echo $form->passwordFieldRow($model,'password',array('class'=>'span5','maxlength'=>128, 'value'=>'')); ?>
 
-<?php echo $form->textFieldRow($model,'reset_password_token',array('class'=>'span5','maxlength'=>255)); ?>
-
+<?php echo $form->passwordFieldRow($model, 'password_repeat', array('class'=>'span5','maxlength'=>128, 'value'=>'')); ?>
 <div class="form-actions">
     <?php $this->widget('bootstrap.widgets.TbButton', array(
         'buttonType'=>'submit',

@@ -16,8 +16,6 @@
                 <td><?php echo $house->city ; ?></td>
                 <td><?php echo $house->state ; ?></td>
             </tr>
-
-
         <?php endforeach; ?>
         </tbody>
     </table>

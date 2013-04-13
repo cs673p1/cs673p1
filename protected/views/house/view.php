@@ -7,7 +7,7 @@
             <li><?php echo CHtml::link('Delete house', array('house/delete', 'id'=>$model->id),
                     array(
                         'submit'=>array('house/delete', 'id'=>$model->id),
-                        'class' => 'delete','confirm'=>'This will remove the image. Are you sure?'
+                        'class' => 'delete','confirm'=>'This will remove the House. Are you sure?'
                     )) ; ?></li>
             <?php if(!Yii::app()->user->isGuest): ?>
                 <li class="nav-header">Profile</li>
