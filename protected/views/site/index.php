@@ -4,12 +4,7 @@
 $this->pageTitle=Yii::app()->name;
 if( !isset($_POST['zipCode']) and !isset($_GET['id']) ) {
     ?>
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <script>
-        function displayAdvanced(){
 
-        }
-    </script>
     <div class="row">
         <div class="span12">
             <h1>Search</h1>

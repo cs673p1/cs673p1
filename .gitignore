@@ -1,9 +1,8 @@
-assets/*
-!assets/README.*
-protected/runtime/*
-!protected/runtime/README.*
-themes/classic/views/
+/assets/*
+/protected/runtime/*
+/themes/classic/views/
 .idea/*
+!*.gitignore
 
 
 ## generic files to ignore

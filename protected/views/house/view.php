@@ -18,8 +18,6 @@
     </div>
 </div>
 <div class="span9">
-    <?php echo $model->user->name ; ?>
-
     <?php $this->widget('bootstrap.widgets.TbDetailView',array(
         'data'=>$model,
         'attributes'=>array(

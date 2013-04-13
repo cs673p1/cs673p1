@@ -1,48 +1,27 @@
-<?php
-/* @var $this UserController */
-/* @var $model User */
-/* @var $form CActiveForm */
-?>
-
-<div class="form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'user-form',
-	'enableAjaxValidation'=>false,
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
+    'id'=>'user-form',
+    'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+<p class="help-block">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>32,'maxlength'=>32)); ?>
-		<?php echo $form->error($model,'name'); ?>
-	</div>
+<?php echo $form->textFieldRow($model,'name',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email',array('size'=>32,'maxlength'=>32)); ?>
-		<?php echo $form->error($model,'email'); ?>
-	</div>
+<?php echo $form->textFieldRow($model,'email',array('class'=>'span5','maxlength'=>128)); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password',array('size'=>32,'maxlength'=>32, 'value'=>'')); ?>
-		<?php echo $form->error($model,'password'); ?>
-	</div>
+<?php echo $form->passwordFieldRow($model,'password',array('class'=>'span5','maxlength'=>128)); ?>
 
-    <div class="row">
-        <?php echo $form->label($model, 'password_repeat'); ?>
-        <?php echo $form->passwordField($model,'password_repeat', array('size'=>32,'maxlength'=>32)); ?>
-        <?php echo $form->error($model, 'password_repeat'); ?>
-    </div>
+<?php echo $form->textFieldRow($model,'reset_password_token',array('class'=>'span5','maxlength'=>255)); ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
+<div class="form-actions">
+    <?php $this->widget('bootstrap.widgets.TbButton', array(
+        'buttonType'=>'submit',
+        'type'=>'primary',
+        'label'=>$model->isNewRecord ? 'Create' : 'Save',
+    )); ?>
+</div>
 
 <?php $this->endWidget(); ?>
 
-</div><!-- form -->
