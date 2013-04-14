@@ -1,5 +1,5 @@
 <?php
-require_once dirname(dirname(__FILE__))."/lib/main.php";
+require_once dirname(__FILE__)."/../lib/main.php";
 
 class ImageController extends Controller
 {
@@ -15,7 +15,7 @@ class ImageController extends Controller
     public function filters()
     {
         return array(
-            //'accessControl', // perform access control for CRUD operations
+            'accessControl', // perform access control for CRUD operations
             'postOnly + delete', // we only allow deletion via POST request
         );
     }
@@ -33,12 +33,12 @@ class ImageController extends Controller
                 'users'=>array('*'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions'=>array('create','update'),
-                'users'=>array('@'),
+                'actions'=>array('create'),
+                'roles'=>array('authenticated'),
             ),
-            array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions'=>array('admin','delete'),
-                'users'=>array('admin'),
+            array('allow', // allow authenticated user and himself to update/delete
+                'actions'=>array('update', 'delete', 'admin'),
+                'roles'=>array('authenticated')
             ),
             array('deny',  // deny all users
                 'users'=>array('*'),
@@ -113,6 +113,13 @@ class ImageController extends Controller
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
+        $seller = $model->house->seller;
+        $params = array('Seller'=>$seller);
+
+        if (!Yii::app()->user->checkAccess('updateHouse', $params) && !Yii::app()->user->checkAccess('admin')){
+            throw new CHttpException(403, 'You are not authorized to perform this action');
+        }
+
         if(isset($_POST['Image']))
         {
             $model->attributes=$_POST['Image'];
@@ -132,6 +139,14 @@ class ImageController extends Controller
      */
     public function actionDelete($id)
     {
+        $model=$this->loadModel($id);
+
+        $seller = $model->house->seller;
+        $params = array('Seller'=>$seller);
+
+        if (!Yii::app()->user->checkAccess('updateHouse', $params) && !Yii::app()->user->checkAccess('admin')){
+            throw new CHttpException(403, 'You are not authorized to perform this action');
+        }
         $this->loadModel($id)->delete();
 
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser

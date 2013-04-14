@@ -1,12 +1,3 @@
-<div class="navbar">
-    <div class="navbar-inner">
-        <ul class="nav">
-            <li><?php  echo CHtml::link('Post house', array('house/create')); ?></li>
-            <li><a href="#">My House</a></li>
-        </ul>
-    </div>
-</div>
-
 <div class="span12">
     <table class="table table-striped table-hover">
         <thead>
@@ -25,8 +16,6 @@
                 <td><?php echo $house->city ; ?></td>
                 <td><?php echo $house->state ; ?></td>
             </tr>
-
-
         <?php endforeach; ?>
         </tbody>
     </table>

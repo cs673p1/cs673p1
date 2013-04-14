@@ -14,7 +14,8 @@ class HouseController extends Controller
     public function filters()
     {
         return array(
-            //'accessControl', // perform access control for CRUD operations
+            'accessControl', // perform access control for CRUD operations
+            'postOnly + delete', // we only allow deletion via POST request
         );
     }
 
@@ -31,12 +32,12 @@ class HouseController extends Controller
                 'users'=>array('*'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions'=>array('create','update'),
-                'users'=>array('@'),
+                'actions'=>array('create'),
+                'roles'=>array('authenticated'),
             ),
-            array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions'=>array('admin','delete'),
-                'users'=>array('admin'),
+            array('allow', // allow authenticated users to update/view
+                'actions'=>array('update', 'delete'),
+                'roles'=>array('authenticated')
             ),
             array('deny',  // deny all users
                 'users'=>array('*'),
@@ -62,15 +63,22 @@ class HouseController extends Controller
     public function actionCreate()
     {
         $model=new House;
+        //save house id and user id to seller table
+        $seller = new Sellers;
 
         // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
+        $this->performAjaxValidation($model);
 
         if(isset($_POST['House']))
         {
             $model->attributes=$_POST['House'];
-            if($model->save())
-                $this->redirect(array('view','id'=>$model->id));
+
+            if($model->save()){
+                $seller->house_id = $model->id;
+                $seller->user_id = Yii::app()->user->id;
+                if($seller->save())
+                    $this->redirect(array('view','id'=>$model->id));
+            }
         }
 
         $this->render('create',array(
@@ -85,10 +93,18 @@ class HouseController extends Controller
      */
     public function actionUpdate($id)
     {
+
         $model=$this->loadModel($id);
 
+        $seller = $model->seller;
+        $params = array('Seller'=>$seller);
+
+        if (!Yii::app()->user->checkAccess('updateHouse', $params) && !Yii::app()->user->checkAccess('admin')){
+            throw new CHttpException(403, 'You are not authorized to perform this action');
+        }
+
         // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
+        $this->performAjaxValidation($model);
 
         if(isset($_POST['House']))
         {
@@ -111,6 +127,14 @@ class HouseController extends Controller
     {
         if(Yii::app()->request->isPostRequest)
         {
+            $model=$this->loadModel($id);
+            $seller = $model->seller;
+            $params = array('Seller'=>$seller);
+
+            if (!Yii::app()->user->checkAccess('updateHouse', $params) && !Yii::app()->user->checkAccess('admin')){
+                throw new CHttpException(403, 'You are not authorized to perform this action');
+            }
+
             // we only allow deletion via POST request
             $this->loadModel($id)->delete();
 
@@ -128,7 +152,7 @@ class HouseController extends Controller
     public function actionIndex()
     {
         $houses = House::model()->findAll();
-        $dataProvider=new CActiveDataProvider('House');
+
         $this->render('index',array(
             'houses'=>$houses,
         ));

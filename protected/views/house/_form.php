@@ -1,6 +1,7 @@
+<?php require_once(dirname(__FILE__).'/../../extensions/States.php') ;?>
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'house-form',
-	'enableAjaxValidation'=>false,
+	'enableAjaxValidation'=>true,
 )); ?>
 
 	<p class="help-block">Fields with <span class="required">*</span> are required.</p>
@@ -15,7 +16,8 @@
 
 	<?php echo $form->textFieldRow($model,'city',array('class'=>'span5','maxlength'=>19)); ?>
 
-	<?php echo $form->textFieldRow($model,'state',array('class'=>'span5','maxlength'=>256)); ?>
+    <?php echo $form->dropDownListRow($model, 'state', States::getStates(array("US"), true),
+        array('prompt' => 'Select State')); ?>
 
 	<?php echo $form->textFieldRow($model,'zip_code',array('class'=>'span5')); ?>
 

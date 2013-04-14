@@ -7,7 +7,7 @@
             <li><?php echo CHtml::link('Delete house', array('house/delete', 'id'=>$model->id),
                     array(
                         'submit'=>array('house/delete', 'id'=>$model->id),
-                        'class' => 'delete','confirm'=>'This will remove the image. Are you sure?'
+                        'class' => 'delete','confirm'=>'This will remove the House. Are you sure?'
                     )) ; ?></li>
             <?php if(!Yii::app()->user->isGuest): ?>
                 <li class="nav-header">Profile</li>
@@ -21,7 +21,7 @@
     <?php $this->widget('bootstrap.widgets.TbDetailView',array(
         'data'=>$model,
         'attributes'=>array(
-            'id',
+            'title',
             'address_1',
             'address_2',
             'city',
@@ -44,7 +44,6 @@
     <?php foreach ($images as $image): ?>
         <img src="<?php echo $image->image_address; ?>" class="img-rounded"height="200" width="300">
     <?php endforeach; ?>
-
 
 
 </div>

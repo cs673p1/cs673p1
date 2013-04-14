@@ -33,5 +33,4 @@
 
     <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
 
-    <!-- A standard form for sending the image data to your server -->
 </div>

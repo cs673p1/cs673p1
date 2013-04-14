@@ -50,7 +50,8 @@ class House extends CActiveRecord
         // class name for the relations automatically generated below.
         return array(
             'images'=>array(self::HAS_MANY, 'Image', 'house_id'),
-
+            'seller'=>array(self::HAS_ONE, 'Sellers', 'house_id'),
+            'user'=>array(self::HAS_ONE, 'User', array('user_id'=>'id'), 'through'=>'seller')
         );
     }
 
@@ -63,7 +64,7 @@ class House extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('title, address_1, state, zip_code ', 'required'),
+            array('title, address_1, state, zip_code, city', 'required'),
             array('zip_code', 'numerical', 'integerOnly'=>true),
             array('address_1, address_2, state', 'length', 'max'=>256),
             array('city', 'length', 'max'=>19),

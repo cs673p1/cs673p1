@@ -7,50 +7,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <!-- twitter bootstrap -->
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/bootstrap/css/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css" />
-
-    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/bootstrap/js/bootstrap.min.js" ></script>
-
+    <?php Yii::app()->bootstrap->register(); ?>
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
-    <style>
-    </style>
+
 
 </head>
 
 <body>
-<header class="navbar navbar-inverse navbar-fixed-top">
-    <nav class="navbar-inner">
-        <div class="container">
-            <ul class="nav">
-                <li><?php echo CHtml::link('HOME', array('/site/index')); ?></li>
-                <li><?php echo CHtml::link('CONTACT ME', array('/site/contact')); ?></li>
-                <li><?php echo CHtml::link('HOUSE', array('house/index')) ?></li>
-            </ul>
-            <div class="pull-right">
-                <ul class="nav">
-                    <li><?php echo Yii::app()->user->isGuest ? CHtml::link('Sign in', array('/site/login')) :
-                            CHtml::link('Dashboard', array('user/setting', 'id'=>Yii::app()->user->getId())); ?></li>
-                    <li><?php echo Yii::app()->user->isGuest ? CHtml::link('Sign up', array('/user/create')) : ''; ?></li>
-                    <li><?php echo !Yii::app()->user->isGuest ? CHtml::link('Logout', array('/site/logout')) : ''; ?></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
+<?php $this->widget('bootstrap.widgets.TbNavbar',array(
+    'type'=>'inverse',
+    'brand'=>'HOMEOPOLY',
+    'collapse'=>true,
+    'items'=>array(
+        array(
+            'class'=>'bootstrap.widgets.TbMenu',
+            'items'=>array(
+                array('label'=>'Home', 'url'=>array('/site/index')),
+                array('label'=>'House', 'url'=>array('/house/index'), 'items'=>array(
+                    array('label'=>'All House', 'url'=>array('/house/index')),
+                    array('label'=>'Post House', 'url'=>array('/house/create')),
+                )),
+
+            ),
+        ),
+        array(
+            'class'=>'bootstrap.widgets.TbMenu',
+            'htmlOptions'=>array('class'=>'pull-right'),
+            'items'=>array(
+                array('label'=>'Dashboard', 'url'=>array('/user/setting',
+                    'id'=>Yii::app()->user->getId()), 'visible'=>!Yii::app()->user->isGuest,
+                    'items'=>array(
+                        array('label'=>'Update Profile', 'url'=>array('/user/update', 'id'=>Yii::app()->user->getId())),
+                        array('label'=>'Manage My House', 'url'=>array('/user/setting','id'=>Yii::app()->user->getId())),
+                    )),
+                array('label'=>'Login', 'url'=>array('/site/login'),
+                    'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'),
+                    'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Sign Up', 'url'=>array('/user/create'),
+                    'visible'=>Yii::app()->user->isGuest),
+            ),
+        ),
+    ),
+)); ?>
 
 <div class="main" style="min-height: 500px">
     <div class="container">
-        <div class="content">
-            <?php echo $content; ?>
-        </div>
+        <?php echo $content; ?>
     </div>
 </div>
+
 <footer class="footer">
-    Copyright &copy; by My Company.<br/>
-    All Rights Reserved.<br/>
+    <?php echo CHtml::link('CONTACT US', array('/site/contact')); ?>
+    Copyright &copy; by My Company. All Rights Reserved.
 </footer><!-- footer -->
 
 
