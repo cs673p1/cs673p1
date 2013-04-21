@@ -8,6 +8,8 @@
                 <li class="nav-header">Profile</li>
                 <li><?php echo CHtml::link('House Management') ; ?></li>
                 <li><?php echo CHtml::link('Profile update', array('user/update', 'id'=>Yii::app()->user->getId())); ?></li>
+ 
+    			
             <?php endif; ?>
         </ul>
     </div>
@@ -20,17 +22,27 @@
     <!-- A standard form for sending the image data to your server -->
     <div id='backend_upload'>
         <h4>Upload a photo</h4>
+		 
+ 
         <form action="<?php echo $this->createUrl('image/create'); ?>" method="post" enctype="multipart/form-data">
 
             <input type="file"   name="files[]" multiple accept="image/gif, image/jpeg, image/png">
             <input id="house_id"   type="hidden" name="house_id" value= "<?php echo $model->id?>">
             <input type="submit" value="Upload">
         </form>
-    </div>
+	 
 
 
-    <h4>Image for House #<?php echo $model->id; ?></h4>
-
+   
     <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
+	 <h4>Image for House #<?php echo $model->id; ?></h4>
+
+    <?php $images = $model->images; ?>
+
+    <?php foreach ($images as $image): ?>
+        <img src="<?php echo $image->image_address; ?>" class="img-rounded"height="200" width="300">
+   
+<li><?php echo CHtml::link('Update image', array('image/update', 'id'=>$image->id)); ?></li>
+ <?php endforeach; ?>
 
 </div>
