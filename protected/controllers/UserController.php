@@ -59,10 +59,7 @@ class UserController extends Controller
     public function actionView($id)
     {
         $model=$this->loadModel($id);
-        $params = array('User'=>$model);
-        if (!Yii::app()->user->checkAccess('updateSelf', $params) && !Yii::app()->user->checkAccess('admin')){
-            throw new CHttpException(403, 'You are not authorized to perform this action');
-        }
+
         $this->render('view',array(
             'model'=>$this->loadModel($id),
         ));
@@ -95,7 +92,7 @@ class UserController extends Controller
         {
             $model->attributes=$_POST['User'];
             if($model->save())
-                $this->redirect(array('view','id'=>$model->id));
+                $this->redirect(array('setting','id'=>$model->id));
         }
 
         $this->render('create',array(
