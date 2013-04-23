@@ -25,6 +25,7 @@ class ImageController extends Controller
      * This method is used by the 'accessControl' filter.
      * @return array access control rules
      */
+     public $imagenurl;
     public function accessRules()
     {
         return array(
@@ -44,7 +45,15 @@ class ImageController extends Controller
                 'users'=>array('*'),
             ),
         );
+		
+		
+		return array(
+array('image', 'file', 'types'=>'jpg, gif, png'),
+);
     }
+ 
+ 
+
 
     /**
      * Displays a particular model.
@@ -62,7 +71,8 @@ class ImageController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate()
-    {
+    { 
+	
         $model=new Image;
 
         // Uncomment the following line if AJAX validation is needed
@@ -70,13 +80,17 @@ class ImageController extends Controller
 
         if(isset($_POST['house_id']))
         {
+		
+ 
+		 
             $files = $_FILES["files"];
             $files = is_array($files) ? $files : array($files);
+ 
             foreach ($files["tmp_name"] as $index => $value) {
                 $result = \Cloudinary\Uploader::upload($value, array(
                     "tags" => "backend_photo_album",
                 ));
-
+ 
                 unlink($value);
                 error_log("Upload result: " . \PhotoAlbum\ret_var_dump($result));
 
@@ -93,12 +107,13 @@ class ImageController extends Controller
                     $this->redirect(array('view','id'=>$model->id));
             }
 
-
-        }
+}
+        
 
         $this->render('create',array(
             'model'=>$model,
         ));
+		
     }
 
     /**
@@ -149,7 +164,7 @@ class ImageController extends Controller
         }
         $this->loadModel($id)->delete();
 
-          // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+        // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
        if(!isset($_GET['ajax']))
            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('house/view', 'id'=>$model->house->id));
     }
