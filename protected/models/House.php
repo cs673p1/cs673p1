@@ -64,13 +64,12 @@ class House extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('title, address_1, state, zip_code, city', 'required'),
-            array('zip_code', 'numerical', 'integerOnly'=>true),
+            array('title, address_1, state, zip_code, city, description', 'required'),
+            array('zip_code, number_of_floor, garden, backdoor, number_of_bathroom, number_of_room', 'numerical', 'integerOnly'=>true),
             array('address_1, address_2, state', 'length', 'max'=>256),
             array('city', 'length', 'max'=>19),
-            // The following rule is used by search().
-            // Please remove those attributes that should not be searched.
             array('id, address_1, address_2, city, state, zip_code, description, number_of_floor, garage, garden, backdoor, number_of_bathroom, number_of_room, title', 'safe', 'on'=>'search'),
+            array('city', 'match', 'pattern'=>'/^[a-zA-Z\s]+$/',  'message'=>'city can only contain word characters'),
 
         );
     }
@@ -117,16 +116,36 @@ class House extends CActiveRecord
 
         $criteria=new CDbCriteria;
 
-        $criteria->compare('id', $this->id);
+        $criteria->compare('id',$this->id);
         $criteria->compare('address_1',$this->address_1,true);
         $criteria->compare('address_2',$this->address_2,true);
         $criteria->compare('city',$this->city,true);
         $criteria->compare('state',$this->state,true);
-        $criteria->compare('zip_code',$this->zip_code);
+        $criteria->compare('zip_code',$this->zip_code,true);
+        $criteria->compare('description',$this->description,true);
+        $criteria->compare('number_of_floor',$this->number_of_floor);
+        $criteria->compare('garage',$this->garage);
+        $criteria->compare('garden',$this->garden);
+        $criteria->compare('backdoor',$this->backdoor);
+        $criteria->compare('number_of_bathroom',$this->number_of_bathroom);
+        $criteria->compare('number_of_room',$this->number_of_room);
+        $criteria->compare('title',$this->title,true);
 
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
         ));
+    }
+
+    /**
+     * Generate number array
+     */
+    public function getNumberOptions($init, $step){
+        $array =  array();
+        for($i = $init; $i<=$step; $i++){
+            $tmpArray = array($i=>$i);
+            $array = array_merge($array, $tmpArray);
+        }
+        return $array;
     }
 
 }
