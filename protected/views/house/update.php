@@ -1,87 +1,66 @@
-<?php
-require 'main.php';
-?>
+<?php require_once dirname(__FILE__)."/../../lib/imageValid.js";?>
+<div class="span3">
+    <div class="sidebar-nav affix">
+        <ul class="nav nav-list">
+            <li class="nav-header">House</li>
+            <li><?php echo CHtml::link('Post house', array('house/create')); ?></li>
+            <li><?php echo CHtml::link('View house', array('house/view', 'id'=>$model->id)) ; ?></li>
+            <?php if(!Yii::app()->user->isGuest): ?>
+                <li class="nav-header">Profile</li>
+                <li><?php echo CHtml::link('House Management') ; ?></li>
+                <li><?php echo CHtml::link('Profile update', array('user/update', 'id'=>Yii::app()->user->getId())); ?></li>
+            <?php endif; ?>
+        </ul>
+    </div>
+</div>
+ 
 
-<?php
-$this->breadcrumbs=array(
-	'Houses'=>array('index'),
-	$model->id=>array('view','id'=>$model->id),
-	'Update',
-);
-
-$this->menu=array(
-	array('label'=>'List House','url'=>array('index')),
-	array('label'=>'Create House','url'=>array('create')),
-	array('label'=>'View House','url'=>array('view','id'=>$model->id)),
-	array('label'=>'Manage House','url'=>array('admin')),
-
-);
-?>
-<script type="text/javascript" src="../js/jquery.js"></script>
-<h1>Update House <?php echo $model->id; ?></h1>
-<!-- upload image -->
+<div class="span9">
+    <h4>Update <?php echo $model->title; ?></h4>
+    <!-- upload image -->
 <br>
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="lib/jquery.ui.widget.js"></script>
-    <script src="lib/jquery.iframe-transport.js"></script>
-    <script src="lib/jquery.fileupload.js"></script>
-    <script src="lib/jquery.cloudinary.js"></script>
-    <script>
-      $.cloudinary.config("cloud_name", "<?php echo Cloudinary::config_get("cloud_name"); ?>");
-    </script>
-  </head>
-  
-  
     <!-- A standard form for sending the image data to your server -->
     <div id='backend_upload'>
-       <h4>Upload a photo</h4>
-       <form action="lib/upload_backend.php" method="post" enctype="multipart/form-data">
-
-        <input id="fileupload" type="file"   name="files[]" multiple accept="image/gif, image/jpeg, image/png">
-		<input id="house_id"   type="hidden" name="houseid" value= "<?php echo $model->id?>">
-        <input type="submit" value="Upload">
-      </form>
-    </div>
+<h4>Upload a photo. <br><br>Only Proper Image Files accepted.</br>For Example: .jpg, .gif, .png</h4>
  
- 
- <h4>Image for House #<?php echo $model->id; ?></h4>
+        <form name = "magic" action="<?php echo $this->createUrl('image/create'); ?>" id="idf" method="post" enctype="multipart/form-data">
+        	
+			Upload file: 
+			   <input type="file"name="files[]"onchange="checkName(this, 'fname', 'submit')"/></br>
+			   
+               <input type="text" style="display: none;" name="mike" id="fname"  /><br />
+	 
+             <input id="house_id"   type="hidden" name="house_id" value= "<?php echo $model->id?>">
+			 
+<span class="button-outer">
+<span class="button-inner"> 
 
-<?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
+<input type="submit" name="but" id="submit" value="Upload" disabled="disabled"style="background-color: #e3eeff; border: 1px solid #000; cursor:pointer;"
 
- <!-- A standard form for sending the image data to your server -->
-    
-    <script>
-      function prettydump(obj) {
-        ret = ""
-        $.each(obj, function(key, value) {
-          ret += "<tr><td>" + key + "</td><td>" + value + "</td></tr>";
-        });
-        return ret;
-      }
-      
-      $('.cloudinary-fileupload')
-      .fileupload({ 
-        dropZone: '#direct_upload',
-        start: function () {
-          $('.status_value').text('Starting direct upload...');
-        },
-        progress: function () {
-          $('.status_value').text('Uploading...');
-        },
-      })
-      .on('cloudinarydone', function (e, data) {
-          $('.status_value').text('Idle');
-          $.post('upload_complete.php', data.result);
-          var info = $('<div class="uploaded_info"/>');
-          $(info).append($('<div class="data"/>').append(prettydump(data.result)));
-          $(info).append($('<div class="image"/>').append(
-          	$.cloudinary.image(data.result.public_id, {
-            	format: data.result.format, width: 150, height: 150, crop: "fill"
-          	})
-          ));
-          $('.uploaded_info_holder').append(info);
-          
-      });
-    </script>
-  
+onmouseover="document.magic.but.style.backgroundColor='#ffffff',width='290',height='100';
+document.magic.but.value='Upload'"
+onmousedown="document.magic.but.style.backgroundColor='e3eeff';
+document.magic.but.value='Upload'"
+onmouseup="document.magic.but.style.backgroundColor='#e3eeff';
+document.magic.but.value='Upload'"
+onmouseout="document.magic.but.style.backgroundColor='#e3eeff',height='24';
+document.magic.but.value='Upload'" >
+
+
+<br>
+	   </form>
+	   </span>
+	 
+   
+    <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
+	 <h4>Image for House #<?php echo $model->id; ?></h4>
+
+    <?php $images = $model->images; ?>
+
+    <?php foreach ($images as $image): ?>
+        <img src="<?php echo $image->image_address; ?>" class="img-rounded"height="200" width="300">
+   
+<li><?php echo CHtml::link('Update image', array('image/update', 'id'=>$image->id)); ?></li>
+ <?php endforeach; ?>
+
+</div>
