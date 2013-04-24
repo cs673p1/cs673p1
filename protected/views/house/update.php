@@ -1,4 +1,4 @@
-<?php require_once dirname(__FILE__)."/../../lib/imageValid.js";?>
+ 
 <div class="span3">
     <div class="sidebar-nav affix">
         <ul class="nav nav-list">
