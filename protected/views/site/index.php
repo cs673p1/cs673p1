@@ -4,7 +4,10 @@
 $this->pageTitle=Yii::app()->name;
 if( !isset($_POST['zipCode']) and !isset($_GET['id']) ) {
     ?>
-
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script>
+    //
+    </script>
     <div class="row">
         <div class="span12">
             <h1>Search</h1>
@@ -60,6 +63,7 @@ if( !isset($_POST['zipCode']) and !isset($_GET['id']) ) {
             }
             while ( $row = $result->fetch_object()) {
                 echo "<div id='search_container'>";
+				echo "<img src='".getImageURL($row->id,$mysqli)."'width='100px' height='100px'> <br>";
                 echo CHtml::link("House{$row->id}", array('house/view', 'id'=>$row->id));
                 echo "<br>";
                 echo $row->address_1." , ".$row->address_2;
@@ -77,6 +81,7 @@ if( !isset($_POST['zipCode']) and !isset($_GET['id']) ) {
                 for ($i=0;$i<count($str);$i++){
                     if( stripos($result_str,$str[$i]) ){
                         echo "<div id='search_container'>";
+						echo "<img src='".getImageURL($row->id,$mysqli)."'width='100px' height='100px'> <br>";
                         echo CHtml::link("House{$row->id}", array('house/view', 'id'=>$row->id));
                         echo "<br>";
                         echo $row->address_1." , ".$row->address_2;
@@ -91,6 +96,18 @@ if( !isset($_POST['zipCode']) and !isset($_GET['id']) ) {
 
         $mysqli->close();
     }
+}
+/*
+	This function gets the first image of the property to be displayed for search ...
+*/
+function getImageURL($id,$mysqli){
+	$query="select * from heroku_8c20d29b464abbf.images where house_id = '".$id."'";
+	$result = $mysqli->query($query);
+	if ($result->num_rows == 0){
+		return "http://younine.net/wp-content/themes/the-church/images/no-image.jpg";
+	}else{
+		return $result->fetch_object()->image_address;
+	}
 }
 
 ?>

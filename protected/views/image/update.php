@@ -16,3 +16,10 @@ $this->menu=array(
 <h1>Update Image <?php echo $model->id; ?></h1>
 
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
+ 
+        <img src="<?php echo $model->image_address; ?>" class="img-rounded"height="200" width="300">
+   <?php echo CHtml::link('Delete', array('image/delete', 'id'=>$model->id),
+    array(
+                            'submit'=>array('image/delete', 'id'=>$model->id),
+                            'class' => 'delete','confirm'=>'This will remove the Image. Are you sure?'
+                        )) ; ?>

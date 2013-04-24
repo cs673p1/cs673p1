@@ -51,6 +51,9 @@ class User extends CActiveRecord
             array('password', 'length', 'min'=>8),
             //valid attribute as valid email address
             array('email', 'email'),
+            //valid username all character
+            array('name', 'match', 'pattern'=>'/^[a-zA-Z\s]+$/',  'message'=>'name can only contain word characters'),
+            array('email', 'unique'),
         );
     }
 
