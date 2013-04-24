@@ -8,6 +8,7 @@
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css" />
+     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/css/imageValid.js" ></script>
     <?php Yii::app()->bootstrap->register(); ?>
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
