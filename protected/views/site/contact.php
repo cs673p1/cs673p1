@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
     'Contact',
 );
 ?>
-
+<div id="form-wrap3" class="span6 offset4">
     <h1>Contact Us</h1>
 
 <?php if(Yii::app()->user->hasFlash('contact')): ?>
@@ -44,7 +44,7 @@ $this->breadcrumbs=array(
 
         <?php echo $form->textFieldRow($model,'subject',array('size'=>60,'maxlength'=>128)); ?>
 
-        <?php echo $form->textAreaRow($model,'body',array('rows'=>6, 'class'=>'span8')); ?>
+        <?php echo $form->textAreaRow($model,'body',array('rows'=>6, 'class'=>'span4')); ?>
 
         <?php if(CCaptcha::checkRequirements()): ?>
             <?php echo $form->captchaRow($model,'verifyCode',array(
@@ -62,6 +62,6 @@ $this->breadcrumbs=array(
 
         <?php $this->endWidget(); ?>
 
-    </div><!-- form -->
+    </div><!-- form --></div>
 
 <?php endif; ?>

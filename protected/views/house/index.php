@@ -1,4 +1,5 @@
-<div class="span12">
+<div id="myhouse" background: url(images/transparent.JPG) no-repeat;>
+<div class="span8 offset1">
     <table class="table table-striped table-hover">
         <thead>
         <tr>
@@ -19,4 +20,4 @@
         <?php endforeach; ?>
         </tbody>
     </table>
-</div>
+</div></div>
