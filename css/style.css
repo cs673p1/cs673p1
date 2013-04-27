@@ -1,12 +1,14 @@
-body {
-background: url (images/transparent.jpg) no-repeat;
-height:100%;
-background-position: -800px 42px;
+body { 
+	
+	background: url(images/transparent.jpg) no-repeat; 	
+	height:100%;
+	background-position:-800px 42px;
+	
+	}
 
-}
 #me
 {
-  background: url(images/form.png)  center no-repeat;
+	background: url(images/form.png)  center no-repeat;
 	background-size:2990px 1660px;
 	background-repeat:no-repeat; 
 	padding:0px 10px 0;
@@ -22,9 +24,11 @@ background-position: -800px 42px;
     padding:4px 4px 4px 22px;
     height:18px;
 }
+
+
 #view
 {
-  
+	
 	margin-left: 200px;
 	margin-top: 195px;
 	margin-bottom: 235px;
