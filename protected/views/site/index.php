@@ -8,8 +8,8 @@ if( !isset($_POST['zipCode']) and !isset($_GET['id']) ) {
     <script>
     //
     </script>
-    <div class="row">
-        <div class="span12">
+    <div id="form-wrap2" class="span4 offset4">
+        <div class="text-center">
             <h1>Search</h1>
             <form name="form1" method="post" action="" >
                 <input name="zipCode" type="text" id="searchBar" placeholder="Enter query Here"><br>
