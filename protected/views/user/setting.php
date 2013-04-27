@@ -1,4 +1,4 @@
-<div class="span3">
+<div class="span4">
     <div class="sidebar-nav affix">
         <ul class="nav nav-list">
             <li class="nav-header">House</li>
@@ -10,7 +10,7 @@
         </ul>
     </div>
 </div>
-<div class="span9">
+<div id="me2" class="span4 offset4">
     <?php $houses=$model->house; ?>
     <h3>Your House Details</h3>
     <div><h5><?php $tempcount = 0;
