@@ -1,4 +1,4 @@
-<div class="span12">
+<div  id="form-wrap2"  class="span-5 offset4">
     <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         'id'=>'login-form',
         'type'=>'horizontal',
