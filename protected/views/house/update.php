@@ -15,7 +15,7 @@
 </div>
  
 
-<div class="span9">
+<div id ="me3" class="span5 offset5">
     <h4>Update <?php echo $model->title; ?></h4>
     <!-- upload image -->
 <br>
