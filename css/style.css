@@ -19,6 +19,20 @@ body {
 	text-align:center;
 
 }
+
+#me3
+{
+	background: url(images/form.png)  center no-repeat;
+	background-size:2990px 1660px;
+	background-repeat:no-repeat; 
+	padding:0px 10px 0;
+	margin-left: 1800px;
+	margin-top: 185px;
+	margin-bottom: 135px;
+	margin-left: 100px;
+	text-align:center;
+
+}
 #tbl1 {
     background:#FFFFFF url(images/search.png) no-repeat 4px 4px;
     padding:4px 4px 4px 22px;
@@ -112,14 +126,19 @@ a:hover {
 #deneme
 {
 	
-	background-size:380px 460px;
-	background-repeat:no-repeat; 
-	
 	margin-left: 200px;
-	margin-top: 95px;
+	margin-top: 195px;
 	margin-bottom: 235px;
 	margin-left: 35px;
+}
+
+#deneme2
+{
 	
+	margin-left: 200px;
+	margin-top: 195px;
+	margin-bottom: 235px;
+	margin-left: 335px;
 }
 
 #bg {
