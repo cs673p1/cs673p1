@@ -17,7 +17,7 @@
         </ul>
     </div>
 </div>
-<div class="span9">
+<div id="deneme" class="span6 offset4">
     <?php $this->widget('bootstrap.widgets.TbDetailView',array(
         'data'=>$model,
         'attributes'=>array(
