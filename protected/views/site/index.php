@@ -1,3 +1,4 @@
+ <div id="form-wrap2" class="span4 offset4">
 <?php
 /* @var $this SiteController */
 
@@ -8,7 +9,7 @@ if( !isset($_POST['zipCode']) and !isset($_GET['id']) ) {
     <script>
     //
     </script>
-    <div id="form-wrap2" class="span4 offset4">
+   
         <div class="text-center">
             <h1>Search</h1>
             <form name="form1" method="post" action="" >
@@ -22,7 +23,6 @@ if( !isset($_POST['zipCode']) and !isset($_GET['id']) ) {
             </form>
         </div>
 
-    </div>
 <?php
 }else if( isset($_GET["id"]) ){
     $mysqli= new mysqli("us-cdbr-east-03.cleardb.com", "bd1706af4acf21","8809959f","heroku_8c20d29b464abbf");
@@ -30,7 +30,6 @@ if( !isset($_POST['zipCode']) and !isset($_GET['id']) ) {
         echo "Unable to connect to the database.";
         die();
     }else{
-    	echo "<div id="searchResult">";
         $query="select * from heroku_8c20d29b464abbf.house where id='".$_GET['id']."'";
         $result = $mysqli->query($query);
         $row = $result->fetch_object();
@@ -40,7 +39,6 @@ if( !isset($_POST['zipCode']) and !isset($_GET['id']) ) {
         echo "<br>This is going to be the view a particular house page that shows one house and all its properties";
         echo "<br> yet to add here is the CSS3, details of the house and the review/comments bar";
         $mysqli->close();
-        echo "</div>";
     }
 
 }else{
@@ -49,7 +47,6 @@ if( !isset($_POST['zipCode']) and !isset($_GET['id']) ) {
         echo "Unable to connect to the database.";
         die();
     } else {
-    	echo "<div id="searchResult">";
         //echo "Connection Test Succeeded";
         if ($_POST['choice']!="free"){
             if ($_POST['choice']=="zip"){
@@ -96,7 +93,7 @@ if( !isset($_POST['zipCode']) and !isset($_GET['id']) ) {
 
             }
         }
-	echo "</div>";
+
         $mysqli->close();
     }
 }
@@ -114,3 +111,4 @@ function getImageURL($id,$mysqli){
 }
 
 ?>
+</div>
