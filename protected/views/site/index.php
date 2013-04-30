@@ -1,3 +1,4 @@
+ <div id="form-wrap2" class="span4 offset4">
 <?php
 /* @var $this SiteController */
 
@@ -8,7 +9,7 @@ if( !isset($_POST['zipCode']) and !isset($_GET['id']) ) {
     <script>
     //
     </script>
-    <div id="form-wrap2" class="span4 offset4">
+   
         <div class="text-center">
             <h1>Search</h1>
             <form name="form1" method="post" action="" >
@@ -22,7 +23,6 @@ if( !isset($_POST['zipCode']) and !isset($_GET['id']) ) {
             </form>
         </div>
 
-    </div>
 <?php
 }else if( isset($_GET["id"]) ){
     $mysqli= new mysqli("us-cdbr-east-03.cleardb.com", "bd1706af4acf21","8809959f","heroku_8c20d29b464abbf");
@@ -111,3 +111,4 @@ function getImageURL($id,$mysqli){
 }
 
 ?>
+</div>

@@ -1,3 +1,4 @@
+<div id="deneme2" class="span5 offset5">
 <?php
 $this->breadcrumbs=array(
 	'Images'=>array('index'),
@@ -23,3 +24,4 @@ $this->menu=array(
                             'submit'=>array('image/delete', 'id'=>$model->id),
                             'class' => 'delete','confirm'=>'This will remove the Image. Are you sure?'
                         )) ; ?>
+</div>

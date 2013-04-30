@@ -11,7 +11,7 @@
         </ul>
     </div>
 </div>
-<div class="span9">
+<div id="me3"class="span5 offset4">
     <h3>Create House</h3>
     <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
 </div>
